@@ -72,8 +72,6 @@
       display: flex;
       justify-content: center;
       background: #fff9;
-      gap: 2em;
-      padding: 0.8em 1em 0.7em 1em;
       margin: 0 auto 2em auto;
       border-radius: 2em;
       box-shadow: var(--shadow);
@@ -90,6 +88,54 @@
   background: #fff9;
   box-shadow: var(--shadow);
   transition: box-shadow 0.2s;
+}
+    .main-nav {
+  position: sticky; /* or fixed if you want always-on-top */
+  top: 0;
+  z-index: 999;
+  background: #fff9;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 0; /* 無間隔，若要有間隔可設 gap: 2px; */
+  border-bottom: 1.5px solid #e2e2e2;
+  box-shadow: 0 2px 8px #76c7f422;
+  overflow-x: auto;
+  min-height: 3.1em;
+}
+.main-nav a {
+  flex: 1 1 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.9em 0.5em;
+  font-size: 1.08em;
+  font-weight: 700;
+  color: #28527a;
+  text-decoration: none;
+  border: none;
+  background: transparent;
+  transition: background .19s, color .19s;
+  min-width: 80px;
+  letter-spacing: 1px;
+  border-bottom: 2.5px solid transparent;
+}
+.main-nav a:hover, .main-nav a.active {
+  color: #ff7e79;
+  background: #f5fafd;
+  border-bottom: 2.5px solid #8cd867;
+}
+@media (max-width: 600px) {
+  .main-nav {
+    font-size: 1em;
+    min-height: 2.7em;
+  }
+  .main-nav a {
+    font-size: 1em;
+    min-width: 65px;
+    padding: 0.7em 0.3em;
+  }
 }
 nav.sticky {
   box-shadow: 0 2px 16px #28527a22;
