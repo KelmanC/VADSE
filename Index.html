@@ -382,6 +382,64 @@ nav.sticky {
     @keyframes fadeSection {
       to { opacity: 1; transform: none;}
     }
+    #articles {
+  margin-bottom: 2.5rem;
+  background: #f9f9fc;
+  border-radius: 16px;
+  box-shadow: 0 2px 16px #b1c8ec22;
+  padding: 2em 1.5em 1em 1.5em;
+}
+#articles h2 {
+  text-align: center;
+  margin-bottom: 1.3em;
+}
+.article-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5em;
+  justify-content: center;
+}
+.article-list article {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px #8cd86711;
+  padding: 1.2em 1.1em;
+  max-width: 350px;
+  flex: 1 1 250px;
+  display: flex;
+  flex-direction: column;
+}
+.article-list h3 {
+  font-size: 1.1em;
+  color: #28527a;
+  margin-bottom: 0.5em;
+}
+.article-list p {
+  flex: 1 1 auto;
+  font-size: 0.98em;
+  color: #666;
+}
+.read-more-link {
+  margin-top: 0.8em;
+  color: #fff;
+  background: #8cd867;
+  border-radius: 6px;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  align-self: flex-start;
+  font-size: 0.98em;
+  font-weight: 600;
+  transition: background 0.18s;
+}
+.read-more-link:hover {
+  background: #28527a;
+}
+@media (max-width: 700px) {
+  .article-list {
+    flex-direction: column;
+    gap: 1em;
+  }
+}
   </style>
 </head>
 <body>
@@ -484,6 +542,25 @@ nav.sticky {
         </div>
       </div>
     </section>
+    <section id="articles">
+  <h2>🎓 藝術考試專欄</h2>
+  <div class="article-list">
+    <article>
+      <h3>如何準備DSE視藝考試作品集？</h3>
+      <p>
+        掌握評卷重點，精選個人最佳作品，並展示創作理念。本文教你如何從零開始有系統地準備屬於自己的完美作品集！
+      </p>
+      <a class="read-more-link" href="article1.html" target="_blank" rel="noopener">閱讀全文</a>
+    </article>
+    <article>
+      <h3>常見失分位與考場應對方法</h3>
+      <p>
+        分析DSE視藝歷屆考生最易忽略的細節，教你如何在考場上避免失分，穩奪高分！
+      </p>
+      <a class="read-more-link" href="article2.html" target="_blank" rel="noopener">閱讀全文</a>
+    </article>
+  </div>
+</section>
     <section id="contact">
       <h2>聯絡我們</h2>
       <p>查詢或報名請 WhatsApp / 電話：<a href="tel:+85292632618" style="color:var(--coral);font-weight:bold;">+852 9263 2618</a></p>
