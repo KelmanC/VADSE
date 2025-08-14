@@ -444,6 +444,65 @@ nav.sticky {
     gap: 1em;
   }
 }
+    /* 分組相片區塊 RWD 樣式 */
+#photos {
+  margin: 2.5em 0;
+  padding: 2em 1.2em 1em 1.2em;
+  background: #f9f9fc;
+  border-radius: 16px;
+  box-shadow: 0 2px 16px #b1c8ec22;
+}
+#photos h2 {
+  margin-top: 1.1em;
+  margin-bottom: 1em;
+  font-size: 1.18em;
+  color: #28527a;
+  border-left: 6px solid #8cd867;
+  padding-left: 0.5em;
+  background: linear-gradient(90deg, #ffe066 0%, #fff 80%);
+  display: inline-block;
+  border-radius: 0 7px 7px 0;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+.poster-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.1em;
+  margin-bottom: 1.8em;
+  justify-content: flex-start;
+}
+.poster-group img {
+  width: 170px;
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 2px 14px #4e8d6b1c;
+  object-fit: cover;
+  transition: transform 0.18s;
+  background: #fff;
+}
+.poster-group img:hover {
+  transform: scale(1.05) rotate(-1deg);
+}
+@media (max-width: 700px) {
+  .poster-group {
+    gap: 0.8em;
+    justify-content: center;
+  }
+  .poster-group img {
+    width: 90vw;
+    max-width: 320px;
+    margin: 0 auto;
+    border-radius: 11px;
+  }
+  #photos {
+    padding: 1.2em 0.2em;
+  }
+  #photos h2 {
+    font-size: 1em;
+    padding-left: 0.4em;
+  }
+}
   </style>
   <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17417628554">
@@ -485,18 +544,30 @@ nav.sticky {
         2025年DSE VA 3位學生榮獲5**和8位學生5*
       </div>
     </section>
-    <div class="poster-list">
+   <div class="poster-list">
       <img src="WhatsApp Image 2025-07-30 at 9.55.03 PM (1).jpeg" alt="Victor Studio 海報1" loading="lazy">
       <img src="WhatsApp Image 2025-07-30 at 9.55.03 PM.jpeg" alt="Victor Studio 海報2" loading="lazy">
-      <img src="IMG_9286 (1).jpg" alt="Victor Studio 海報3" loading="lazy">
-      <img src="WhatsApp Image 2023-12-23 at 15.41.42 (5).jpeg" alt="Victor Studio 海報4" loading="lazy">
-      <img src="IMG_9638.jpg" alt="Victor Studio 海報5" loading="lazy">
-      <img src="IMG_7468.jpg" alt="Victor Studio 海報6" loading="lazy">
-      <img src="IMG_9202.jpg" alt="Victor Studio 海報7" loading="lazy">
-      <img src="3046701d-460a-4014-9e44-79d95bff9a8a (1).JPG" alt="Victor Studio 海報8" loading="lazy">
-      <img src="IMG_3410.jpg" alt="Victor Studio 海報9" loading="lazy">
-      <img src="IMG_4681(1).jpg" alt="Victor Studio 海報10" loading="lazy">
-    </div>
+      </div>
+<section id="photos">
+  <h2>課室環境</h2>
+  <div class="poster-group">
+    <img src="IMG_4681(1).jpg" alt="課室環境1" loading="lazy">
+  </div>
+  <h2>到校教學</h2>
+  <div class="poster-group">
+    <img src="3046701d-460a-4014-9e44-79d95bff9a8a (1).JPG" alt="到校教學1" loading="lazy">
+    <img src="IMG_3410.jpg" alt="到校教學2" loading="lazy">
+  </div>
+  <h2>教學相片</h2>
+  <div class="poster-group">
+    <img src="IMG_9286 (1).jpg" alt="教學相片1" loading="lazy">
+    <img src="WhatsApp Image 2023-12-23 at 15.41.42 (5).jpeg" alt="教學相片2" loading="lazy">
+    <img src="IMG_7468.jpg" alt="教學相片3" loading="lazy">
+    <img src="IMG_9202.jpg" alt="教學相片4" loading="lazy">
+    <img src="IMG_9202.jpg" alt="教學相片5" loading="lazy">
+    <!-- 你可自行添加/替換更多教學相片 -->
+  </div>
+</section>
     <section id="tutor">
       <h2>導師介紹</h2>
       <div class="tutor-panel">
