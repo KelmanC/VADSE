@@ -503,6 +503,107 @@ nav.sticky {
     padding-left: 0.4em;
   }
 }
+    /* 導師 grid 卡片區塊 */
+.tutor-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(295px, 1fr));
+  gap: 2em;
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+.tutor-card {
+  background: linear-gradient(120deg, #eafcff 0%, #fdf2f2 100%);
+  border-radius: 18px;
+  box-shadow: 0 2px 16px #76c7f430;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.4em 1em 1.1em 1em;
+  color: var(--deepblue);
+  opacity: 0;
+  transform: translateY(40px);
+  animation: slideUpCard 1.2s forwards;
+  animation-delay: .25s;
+  min-height: 420px;
+}
+
+.tutor-card-img {
+  width: 96px;
+  height: 96px;
+  border-radius: 16px;
+  object-fit: cover;
+  border: 2.5px solid var(--green);
+  background: #fff;
+  box-shadow: 0 1px 10px #4e8d6b22;
+  margin-bottom: 0.5em;
+}
+
+.tutor-card-info {
+  width: 100%;
+  text-align: left;
+}
+
+.tutor-badge {
+  background: linear-gradient(90deg, var(--green) 50%, #fff 100%);
+  color: var(--deepblue);
+  padding: 0.18em 1em 0.13em 1em;
+  border-radius: 2em;
+  font-size: 1em;
+  letter-spacing: 1px;
+  margin-bottom: 0.2em;
+  font-family: 'Montserrat', 'Noto Sans TC', Arial, sans-serif;
+  font-weight: 700;
+  display: inline-block;
+}
+
+.tutor-title {
+  font-size: 0.97em;
+  color: var(--coral);
+  font-weight: bold;
+  margin-bottom: 0.18em;
+  margin-top: 0.12em;
+}
+
+.tutor-note {
+  background: #fffbe6;
+  color: var(--darkgreen);
+  border-radius: 8px;
+  padding: 0.45em 1em;
+  font-size: 0.98em;
+  margin-top: 0.5em;
+}
+
+.tutor-card ul.star-list {
+  margin: 0.5em 0 0.1em 1.2em;
+}
+
+/* 動畫延遲排列美觀 */
+.tutor-grid .tutor-card:nth-child(1) { animation-delay: .3s; }
+.tutor-grid .tutor-card:nth-child(2) { animation-delay: .4s; }
+.tutor-grid .tutor-card:nth-child(3) { animation-delay: .5s; }
+.tutor-grid .tutor-card:nth-child(4) { animation-delay: .6s; }
+.tutor-grid .tutor-card:nth-child(5) { animation-delay: .7s; }
+.tutor-grid .tutor-card:nth-child(6) { animation-delay: .8s; }
+
+@media (max-width: 900px) {
+  .tutor-grid {
+    grid-template-columns: 1fr;
+    gap: 1.3em;
+  }
+  .tutor-card {
+    min-height: unset;
+    padding: 1.1em 0.6em 1.1em 0.6em;
+  }
+  .tutor-card-img {
+    width: 74px;
+    height: 74px;
+    border-radius: 12px;
+  }
+  .tutor-title {
+    font-size: 0.95em;
+  }
+}
   </style>
   <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17417628554">
@@ -564,12 +665,11 @@ nav.sticky {
     <img src="WhatsApp Image 2023-12-23 at 15.41.42 (5).jpeg" alt="教學相片2" loading="lazy">
     <img src="IMG_7468.jpg" alt="教學相片3" loading="lazy">
     <img src="IMG_9202.jpg" alt="教學相片4" loading="lazy">
-    <img src="IMG_9202.jpg" alt="教學相片5" loading="lazy">
-    <!-- 你可自行添加/替換更多教學相片 -->
+
   </div>
 </section>
     <section id="tutor">
-      <h2>導師介紹</h2>
+      <h2>創辦人介紹</h2>
       <div class="tutor-panel">
         <div class="tutor-pic">
           <img src="INSTRUCTOR 1.JPG" alt="Victor Lui">
@@ -589,7 +689,103 @@ nav.sticky {
           </div>
         </div>
       </div>
-    </section>
+     <div class="tutor-grid">
+    <!-- Hailey -->
+    <div class="tutor-card">
+      <img src="hailey.jpg" alt="Hailey 導師" class="tutor-card-img">
+      <div class="tutor-card-info">
+        <div class="tutor-badge">設計導師 Hailey</div>
+        <div class="tutor-title">香港理工大學 環境及室內設計</div>
+        <ul class="star-list">
+          <li>曾修讀香港浸會大學視覺藝術</li>
+          <li>獲 ADIA Design Color Award** 等設計獎項</li>
+          <li>參與家具設計研發、於知名室內及建築設計所工作</li>
+          <li>2020年於Victor指導下DSE VA考獲5*</li>
+          <li>加入Victor Studio，負責平面設計及品牌宣傳、內容策劃、視覺設計及推廣</li>
+        </ul>
+        <div class="tutor-note">
+          抱持對設計的熱忱與謙遜學習的態度，Hailey希望未來能不斷提升專業能力，探索設計更多的可能性。
+        </div>
+      </div>
+    </div>
+    <!-- Heiman -->
+    <div class="tutor-card">
+      <img src="heiman.jpg" alt="Heiman 導師" class="tutor-card-img">
+      <div class="tutor-card-info">
+        <div class="tutor-badge">插畫‧電繪導師 Heiman</div>
+        <div class="tutor-title">倫敦藝術大學 插畫與視覺媒體</div>
+        <ul class="star-list">
+          <li>九龍倉全港中學生繪畫比賽等多項全港電繪獎項</li>
+          <li>DSE VA考獲五星，作品集近滿分</li>
+          <li>2024年加入Victor Studio，專注DSE技巧及海外升學經驗分享</li>
+        </ul>
+        <div class="tutor-note">
+          致力於分享DSE視覺藝術科技巧及海外升學經驗，幫助學生提升創作與應試能力。
+        </div>
+      </div>
+    </div>
+    <!-- Yanny -->
+    <div class="tutor-card">
+      <img src="yanny.jpg" alt="Yanny 導師" class="tutor-card-img">
+      <div class="tutor-card-info">
+        <div class="tutor-badge">升學指導導師 Yanny</div>
+        <div class="tutor-title">英國Nottingham Trent University 時裝設計學士</div>
+        <ul class="star-list">
+          <li>多年海外升學及一對一教學經驗</li>
+          <li>深入英國大學入學流程，傳授獨家升學攻略與面試技巧</li>
+          <li>協助準備作品集，提升多元藝術媒介表現（水彩、塑膠彩、素描、電繪等）</li>
+          <li>曾參與英國及法國時裝展，於大型快時尚企業實習</li>
+          <li>以多角度拓展學生視野與思維，提升專業認知與創作能力</li>
+        </ul>
+      </div>
+    </div>
+    <!-- Molly -->
+    <div class="tutor-card">
+      <img src="molly.jpg" alt="Molly 導師" class="tutor-card-img">
+      <div class="tutor-card-info">
+        <div class="tutor-badge">時裝攝影導師 Molly</div>
+        <div class="tutor-title">專業時裝攝影師・6年經驗</div>
+        <ul class="star-list">
+          <li>理工大學攝影比賽冠軍，曾為多個知名品牌拍攝</li>
+          <li>4年DSE VA教學經驗，學生多獲5*/5**，SBA最高99/100</li>
+          <li>善於發掘學生潛能，採用分層策略，幫助學生自信面對挑戰並減輕壓力</li>
+        </ul>
+      </div>
+    </div>
+    <!-- Ariel -->
+    <div class="tutor-card">
+      <img src="ariel.jpg" alt="Ariel 導師" class="tutor-card-img">
+      <div class="tutor-card-info">
+        <div class="tutor-badge">插畫‧藝術導師 Ariel</div>
+        <div class="tutor-title">中學視藝科班長・兒童圖書插畫師</div>
+        <ul class="star-list">
+          <li>曾獲校內視藝科第一名，校內封面設計比賽冠軍</li>
+          <li>高中時為藝術大使及藝術學會會長</li>
+          <li>耐心教導初中生手工及多媒介創作</li>
+          <li>2024年為兒童小說進行插畫創作（已出版）</li>
+          <li>熱愛大自然及夢幻主題，致力於追尋藝術夢想</li>
+        </ul>
+      </div>
+    </div>
+    <!-- Carrie -->
+    <div class="tutor-card">
+      <img src="carrie.jpg" alt="Carrie 導師" class="tutor-card-img">
+      <div class="tutor-card-info">
+        <div class="tutor-badge">美術與城市設計導師 Carrie</div>
+        <div class="tutor-title">香港大學 城市設計與規劃</div>
+        <ul class="star-list">
+          <li>於Victor指導下DSE VA考獲5*，SBA近滿分</li>
+          <li>多次獲得美術獎項，展現藝術才華與努力</li>
+          <li>持續參與Victor工作室藝術創作及教學輔導，累積豐富作品指導及考卷分析經驗</li>
+          <li>專注平面設計與立體作品，風格夢幻具敘事性，探索夢境、幻想與人類意識關係</li>
+        </ul>
+        <div class="tutor-note">
+          作品深入挖掘內心與現實對話，展現獨特敘事力與深厚美術理論。
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
     <section id="course-detail">
       <h2>課程內容・重點</h2>
       <ul class="star-list">
