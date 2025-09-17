@@ -503,105 +503,136 @@ nav.sticky {
     padding-left: 0.4em;
   }
 }
-    /* 導師 grid 卡片區塊 */
+  /* 展開式導師卡片 Grid 樣式 */
 .tutor-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(295px, 1fr));
-  gap: 2em;
+  grid-template-columns: repeat(auto-fit, minmax(265px, 1fr));
+  gap: 1.5em;
   margin-top: 2em;
   margin-bottom: 2em;
 }
 
-.tutor-card {
+.tutor-card-collapsed {
   background: linear-gradient(120deg, #eafcff 0%, #fdf2f2 100%);
   border-radius: 18px;
   box-shadow: 0 2px 16px #76c7f430;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 1.4em 1em 1.1em 1em;
+  align-items: stretch;
+  padding: 1em 0.9em 1em 0.9em;
   color: var(--deepblue);
-  opacity: 0;
-  transform: translateY(40px);
-  animation: slideUpCard 1.2s forwards;
-  animation-delay: .25s;
-  min-height: 420px;
+  cursor: pointer;
+  outline: none;
+  transition: box-shadow 0.17s, border 0.17s;
+  border: 2px solid transparent;
+  position: relative;
+}
+.tutor-card-collapsed:focus,
+.tutor-card-collapsed:hover {
+  box-shadow: 0 4px 20px #ff7e7930;
+  border: 2px solid var(--green);
 }
 
-.tutor-card-img {
-  width: 96px;
-  height: 96px;
-  border-radius: 16px;
+.tutor-card-header {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  min-height: 74px;
+}
+
+.tutor-card-header img {
+  width: 64px;
+  height: 64px;
+  border-radius: 13px;
   object-fit: cover;
   border: 2.5px solid var(--green);
   background: #fff;
   box-shadow: 0 1px 10px #4e8d6b22;
-  margin-bottom: 0.5em;
-}
-
-.tutor-card-info {
-  width: 100%;
-  text-align: left;
+  flex-shrink: 0;
 }
 
 .tutor-badge {
   background: linear-gradient(90deg, var(--green) 50%, #fff 100%);
   color: var(--deepblue);
-  padding: 0.18em 1em 0.13em 1em;
+  padding: 0.14em 1em 0.11em 1em;
   border-radius: 2em;
   font-size: 1em;
   letter-spacing: 1px;
-  margin-bottom: 0.2em;
   font-family: 'Montserrat', 'Noto Sans TC', Arial, sans-serif;
   font-weight: 700;
   display: inline-block;
+  margin-bottom: 0.15em;
 }
 
 .tutor-title {
-  font-size: 0.97em;
+  font-size: 0.99em;
   color: var(--coral);
   font-weight: bold;
-  margin-bottom: 0.18em;
-  margin-top: 0.12em;
+  margin-bottom: 0.13em;
+  margin-top: 0.08em;
+  line-height: 1.2;
+}
+.tutor-school {
+  font-size: 0.93em;
+  color: #28527a;
+  font-weight: normal;
+}
+
+.expand-arrow {
+  margin-left: auto;
+  font-size: 1.3em;
+  color: var(--deepblue);
+  transition: transform 0.24s;
+  font-family: Arial, sans-serif;
+  user-select: none;
+}
+
+.tutor-card-collapsed.active .expand-arrow {
+  transform: rotate(180deg);
+}
+
+.tutor-card-expand {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.35s cubic-bezier(0.4,0,0.2,1), opacity 0.33s;
+  will-change: max-height, opacity;
+  padding-left: 0.17em;
+  padding-right: 0.17em;
+}
+
+.tutor-card-collapsed.active .tutor-card-expand {
+  opacity: 1;
+  max-height: 650px; /* 足夠一般內容展開 */
+  margin-top: 0.7em;
+}
+
+.tutor-card-expand ul.star-list {
+  margin: 0.2em 0 0.1em 1em;
 }
 
 .tutor-note {
   background: #fffbe6;
   color: var(--darkgreen);
   border-radius: 8px;
-  padding: 0.45em 1em;
-  font-size: 0.98em;
+  padding: 0.42em 1em;
+  font-size: 0.97em;
   margin-top: 0.5em;
 }
 
-.tutor-card ul.star-list {
-  margin: 0.5em 0 0.1em 1.2em;
-}
-
-/* 動畫延遲排列美觀 */
-.tutor-grid .tutor-card:nth-child(1) { animation-delay: .3s; }
-.tutor-grid .tutor-card:nth-child(2) { animation-delay: .4s; }
-.tutor-grid .tutor-card:nth-child(3) { animation-delay: .5s; }
-.tutor-grid .tutor-card:nth-child(4) { animation-delay: .6s; }
-.tutor-grid .tutor-card:nth-child(5) { animation-delay: .7s; }
-.tutor-grid .tutor-card:nth-child(6) { animation-delay: .8s; }
-
-@media (max-width: 900px) {
+/* RWD 手機版調整 */
+@media (max-width: 700px) {
   .tutor-grid {
     grid-template-columns: 1fr;
-    gap: 1.3em;
+    gap: 1em;
   }
-  .tutor-card {
-    min-height: unset;
-    padding: 1.1em 0.6em 1.1em 0.6em;
-  }
-  .tutor-card-img {
-    width: 74px;
-    height: 74px;
-    border-radius: 12px;
+  .tutor-card-header img {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
   }
   .tutor-title {
-    font-size: 0.95em;
+    font-size: 0.97em;
   }
 }
   </style>
@@ -669,7 +700,7 @@ nav.sticky {
   </div>
 </section>
     <section id="tutor">
-      <h2>創辦人介紹</h2>
+      <h2>導師介紹</h2>
       <div class="tutor-panel">
         <div class="tutor-pic">
           <img src="INSTRUCTOR 1.JPG" alt="Victor Lui">
@@ -689,13 +720,18 @@ nav.sticky {
           </div>
         </div>
       </div>
-     <div class="tutor-grid">
+      <div class="tutor-grid">
     <!-- Hailey -->
-    <div class="tutor-card">
-      <img src="hailey.jpg" alt="Hailey 導師" class="tutor-card-img">
-      <div class="tutor-card-info">
-        <div class="tutor-badge">設計導師 Hailey</div>
-        <div class="tutor-title">香港理工大學 環境及室內設計</div>
+    <div class="tutor-card-collapsed" tabindex="0">
+      <div class="tutor-card-header">
+        <img src="hailey.jpg" alt="Hailey 導師">
+        <div>
+          <div class="tutor-badge">Hailey</div>
+          <div class="tutor-title">設計導師<br><span class="tutor-school">香港理工大學</span></div>
+        </div>
+        <span class="expand-arrow">▼</span>
+      </div>
+      <div class="tutor-card-expand">
         <ul class="star-list">
           <li>曾修讀香港浸會大學視覺藝術</li>
           <li>獲 ADIA Design Color Award** 等設計獎項</li>
@@ -708,12 +744,18 @@ nav.sticky {
         </div>
       </div>
     </div>
+
     <!-- Heiman -->
-    <div class="tutor-card">
-      <img src="heiman.jpg" alt="Heiman 導師" class="tutor-card-img">
-      <div class="tutor-card-info">
-        <div class="tutor-badge">插畫‧電繪導師 Heiman</div>
-        <div class="tutor-title">倫敦藝術大學 插畫與視覺媒體</div>
+    <div class="tutor-card-collapsed" tabindex="0">
+      <div class="tutor-card-header">
+        <img src="heiman.jpg" alt="Heiman 導師">
+        <div>
+          <div class="tutor-badge">Heiman</div>
+          <div class="tutor-title">插畫・電繪導師<br><span class="tutor-school">倫敦藝術大學</span></div>
+        </div>
+        <span class="expand-arrow">▼</span>
+      </div>
+      <div class="tutor-card-expand">
         <ul class="star-list">
           <li>九龍倉全港中學生繪畫比賽等多項全港電繪獎項</li>
           <li>DSE VA考獲五星，作品集近滿分</li>
@@ -724,12 +766,18 @@ nav.sticky {
         </div>
       </div>
     </div>
+
     <!-- Yanny -->
-    <div class="tutor-card">
-      <img src="yanny.jpg" alt="Yanny 導師" class="tutor-card-img">
-      <div class="tutor-card-info">
-        <div class="tutor-badge">升學指導導師 Yanny</div>
-        <div class="tutor-title">英國Nottingham Trent University 時裝設計學士</div>
+    <div class="tutor-card-collapsed" tabindex="0">
+      <div class="tutor-card-header">
+        <img src="yanny.jpg" alt="Yanny 導師">
+        <div>
+          <div class="tutor-badge">Yanny</div>
+          <div class="tutor-title">升學指導<br><span class="tutor-school">Nottingham Trent University</span></div>
+        </div>
+        <span class="expand-arrow">▼</span>
+      </div>
+      <div class="tutor-card-expand">
         <ul class="star-list">
           <li>多年海外升學及一對一教學經驗</li>
           <li>深入英國大學入學流程，傳授獨家升學攻略與面試技巧</li>
@@ -739,12 +787,18 @@ nav.sticky {
         </ul>
       </div>
     </div>
+
     <!-- Molly -->
-    <div class="tutor-card">
-      <img src="molly.jpg" alt="Molly 導師" class="tutor-card-img">
-      <div class="tutor-card-info">
-        <div class="tutor-badge">時裝攝影導師 Molly</div>
-        <div class="tutor-title">專業時裝攝影師・6年經驗</div>
+    <div class="tutor-card-collapsed" tabindex="0">
+      <div class="tutor-card-header">
+        <img src="molly.jpg" alt="Molly 導師">
+        <div>
+          <div class="tutor-badge">Molly</div>
+          <div class="tutor-title">時裝攝影導師</div>
+        </div>
+        <span class="expand-arrow">▼</span>
+      </div>
+      <div class="tutor-card-expand">
         <ul class="star-list">
           <li>理工大學攝影比賽冠軍，曾為多個知名品牌拍攝</li>
           <li>4年DSE VA教學經驗，學生多獲5*/5**，SBA最高99/100</li>
@@ -752,12 +806,18 @@ nav.sticky {
         </ul>
       </div>
     </div>
+
     <!-- Ariel -->
-    <div class="tutor-card">
-      <img src="ariel.jpg" alt="Ariel 導師" class="tutor-card-img">
-      <div class="tutor-card-info">
-        <div class="tutor-badge">插畫‧藝術導師 Ariel</div>
-        <div class="tutor-title">中學視藝科班長・兒童圖書插畫師</div>
+    <div class="tutor-card-collapsed" tabindex="0">
+      <div class="tutor-card-header">
+        <img src="ariel.jpg" alt="Ariel 導師">
+        <div>
+          <div class="tutor-badge">Ariel</div>
+          <div class="tutor-title">插畫‧藝術導師</div>
+        </div>
+        <span class="expand-arrow">▼</span>
+      </div>
+      <div class="tutor-card-expand">
         <ul class="star-list">
           <li>曾獲校內視藝科第一名，校內封面設計比賽冠軍</li>
           <li>高中時為藝術大使及藝術學會會長</li>
@@ -767,12 +827,18 @@ nav.sticky {
         </ul>
       </div>
     </div>
+
     <!-- Carrie -->
-    <div class="tutor-card">
-      <img src="carrie.jpg" alt="Carrie 導師" class="tutor-card-img">
-      <div class="tutor-card-info">
-        <div class="tutor-badge">美術與城市設計導師 Carrie</div>
-        <div class="tutor-title">香港大學 城市設計與規劃</div>
+    <div class="tutor-card-collapsed" tabindex="0">
+      <div class="tutor-card-header">
+        <img src="carrie.jpg" alt="Carrie 導師">
+        <div>
+          <div class="tutor-badge">Carrie</div>
+          <div class="tutor-title">美術與城市設計導師<br><span class="tutor-school">香港大學</span></div>
+        </div>
+        <span class="expand-arrow">▼</span>
+      </div>
+      <div class="tutor-card-expand">
         <ul class="star-list">
           <li>於Victor指導下DSE VA考獲5*，SBA近滿分</li>
           <li>多次獲得美術獎項，展現藝術才華與努力</li>
@@ -891,5 +957,24 @@ nav.sticky {
     });
   </script>
 
-
+// JS：點擊展開/收起導師卡片
+document.addEventListener("DOMContentLoaded", function() {
+  var cards = document.querySelectorAll('.tutor-card-collapsed');
+  cards.forEach(function(card) {
+    card.addEventListener('click', function(e) {
+      // 避免同時展開多個
+      if (!card.classList.contains('active')) {
+        cards.forEach(function(c) { c.classList.remove('active'); });
+      }
+      card.classList.toggle('active');
+    });
+    // 支援鍵盤（Enter/Space）開關
+    card.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === " ") {
+        e.preventDefault();
+        card.click();
+      }
+    });
+  });
+});
 </body></html>
