@@ -634,40 +634,28 @@ nav.sticky {
   .tutor-title {
     font-size: 0.97em;
   }
-  .course-grid {
+ .course-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(265px, 1fr));
-  gap: 1.4em;
-  margin-top: 2em;
-  margin-bottom: 2em;
+  grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+  gap: 1.5em;
+  margin-top: 1.5em;
 }
 
-.course-card-collapsed {
+.course-card {
   background: linear-gradient(120deg, #eafcff 0%, #fdf2f2 100%);
   border-radius: 18px;
   box-shadow: 0 2px 16px #76c7f430;
   display: flex;
   flex-direction: column;
-  align-items: stretch;
-  padding: 1em 0.9em 1em 0.9em;
+  padding: 1.2em 1.2em 1.1em 1.2em;
   color: var(--deepblue);
-  cursor: pointer;
-  outline: none;
-  transition: box-shadow 0.17s, border 0.17s;
-  border: 2px solid transparent;
-  position: relative;
-}
-.course-card-collapsed:focus,
-.course-card-collapsed:hover {
-  box-shadow: 0 4px 20px #ff7e7930;
-  border: 2px solid var(--green);
 }
 
 .course-card-header {
   display: flex;
   align-items: center;
   gap: 1em;
-  min-height: 74px;
+  margin-bottom: 0.6em;
 }
 
 .course-icon {
@@ -681,82 +669,82 @@ nav.sticky {
   margin-right: 2px;
   flex-shrink: 0;
 }
-
-.course-badge {
-  background: linear-gradient(90deg, var(--green) 50%, #fff 100%);
-  color: var(--deepblue);
-  padding: 0.14em 1em 0.11em 1em;
-  border-radius: 2em;
-  font-size: 1em;
-  letter-spacing: 1px;
-  font-family: 'Montserrat', 'Noto Sans TC', Arial, sans-serif;
-  font-weight: 700;
-  display: inline-block;
-  margin-bottom: 0.12em;
-}
-
 .course-title {
-  font-size: 0.99em;
+  font-size: 1.09em;
   color: var(--coral);
   font-weight: bold;
-  margin-bottom: 0.13em;
-  margin-top: 0.08em;
-  line-height: 1.2;
 }
 .course-school {
-  font-size: 0.93em;
+  font-size: 0.95em;
   color: #28527a;
   font-weight: normal;
 }
 
-.expand-arrow {
-  margin-left: auto;
-  font-size: 1.3em;
-  color: var(--deepblue);
-  transition: transform 0.22s;
-  font-family: Arial, sans-serif;
-  user-select: none;
+.course-table {
+  font-size: 1em;
+  margin-bottom: 0.6em;
 }
-.course-card-collapsed.active .expand-arrow {
-  transform: rotate(180deg);
+.course-table div {
+  margin-bottom: 0.16em;
+  line-height: 1.7;
 }
-
-.course-card-expand {
-  max-height: 0;
-  overflow: hidden;
-  opacity: 0;
-  transition: max-height 0.35s cubic-bezier(0.4,0,0.2,1), opacity 0.33s;
-  will-change: max-height, opacity;
-  padding-left: 0.17em;
-  padding-right: 0.17em;
-}
-.course-card-collapsed.active .course-card-expand {
-  opacity: 1;
-  max-height: 650px;
-  margin-top: 0.7em;
+.course-table span {
+  color: var(--green);
+  font-weight: 700;
+  margin-right: 0.1em;
 }
 
-.course-card-expand ul.star-list {
-  margin: 0.18em 0 0.1em 1em;
+.price-table {
+  margin-bottom: 0.3em;
+  overflow-x: auto;
+}
+.price-table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.98em;
+}
+.price-table th, .price-table td {
+  border: 1px solid #b3e6d1;
+  padding: 0.4em 0.7em;
+  text-align: center;
+}
+.price-table th {
+  background: #e6f9f1;
+  color: #205b4a;
+  font-weight: 700;
+}
+.price-table tr:nth-child(even) td {
+  background: #f8fffd;
+}
+.course-discount {
+  color: #d67b4c;
+  font-size: 0.99em;
+  margin-bottom: 0.2em;
+}
+
+.course-section {
+  margin-bottom: 0.55em;
 }
 
 .course-note {
   background: #fffbe6;
   color: var(--darkgreen);
   border-radius: 8px;
-  padding: 0.42em 1em;
+  padding: 0.42em 1em 0.35em 1em;
   font-size: 0.97em;
-  margin-top: 0.5em;
+  margin-top: 0.4em;
   margin-bottom: 0.15em;
 }
-
+.course-note ul {
+  margin: 0.18em 0 0.1em 1.1em;
+  padding-left: 0.9em;
+}
 @media (max-width: 700px) {
   .course-grid {
     grid-template-columns: 1fr;
     gap: 1em;
   }
   .course-card-header {
-    min-height: 50px;
     gap: 0.6em;
   }
   .course-icon {
@@ -765,6 +753,13 @@ nav.sticky {
     border-radius: 8px;
   }
   .course-title {
+    font-size: 1em;
+  }
+  .price-table th, .price-table td {
+    font-size: 0.95em;
+    padding: 0.35em 0.5em;
+  }
+  .course-table {
     font-size: 0.97em;
   }
 }
@@ -985,33 +980,58 @@ nav.sticky {
     </div>
   </div>
 </section>
-    <section id="course-detail">
+   <section id="course-detail">
   <h2>課程內容・重點</h2>
   <div class="course-grid">
+
     <!-- 升學作品集課程 -->
     <div class="course-card">
       <div class="course-card-header">
         <img src="icon-portfolio.png" alt="升學作品集課程" class="course-icon">
         <div>
-          <div class="course-badge">升學作品集</div>
-          <div class="course-title">香港及外國升學作品集課程 <br><span class="course-school">（如 UAL, PolyU）</span></div>
+          <div class="course-title">香港及外國升學作品集課程</div>
+          <div class="course-school">（如 UAL, PolyU）</div>
         </div>
       </div>
       <div class="course-card-body">
-        <ul class="star-list">
-          <li>二人同行9折、四人同行85折、六人同行8折</li>
-          <li>2小時=1堂</li>
-          <li><b>Plan A</b>：15堂=$6750（包一次指定導師1對1諮詢）</li>
-          <li><b>Plan B</b>：30堂=$12600（包兩次指定導師1對1諮詢）</li>
-          <li><b>Plan C</b>：60堂=$24000（包四次指定導師1對1諮詢）</li>
-        </ul>
-        <div class="course-note">
-          指定導師必須就讀/畢業於相關大學，DSE VA 5** 或作品集90分或以上。<br>
-          諮詢課堂內容包括：檢查作品集、排版、提供意見及入學資訊，課程主力完成作品集，不含入學手續申請。
+        <div class="course-table">
+          <div><span>適合對象：</span>準備報考本地/海外藝術與設計大學</div>
+          <div><span>年齡/學歷：</span>13歲以上</div>
+          <div><span>班型：</span> 1-6人小組／可個別指導</div>
+          <div><span>導師：</span> DSE 5**/資深升學導師</div>
+          <div><span>形式：</span> 線上/實體均可</div>
         </div>
-        <ul class="dot-list">
-          <li>剩餘課堂由 Victor Sir 安排，全程線上錄影方便跟進</li>
-        </ul>
+        <div class="course-section">
+          <div class="price-table">
+            <table>
+              <tr>
+                <th>計劃</th><th>堂數</th><th>費用</th><th>特色</th>
+              </tr>
+              <tr>
+                <td>Plan A</td><td>15</td><td>$6750</td><td>包1次指定導師諮詢</td>
+              </tr>
+              <tr>
+                <td>Plan B</td><td>30</td><td>$12600</td><td>包2次指定導師諮詢</td>
+              </tr>
+              <tr>
+                <td>Plan C</td><td>60</td><td>$24000</td><td>包4次指定導師諮詢</td>
+              </tr>
+            </table>
+          </div>
+          <div class="course-discount">
+            <b>最新優惠：</b>
+            二人同行9折、四人同行85折、六人同行8折
+          </div>
+        </div>
+        <div class="course-note">
+          <b>特色：</b>
+          <ul>
+            <li>指定導師均為相關大學畢業及具DSE 5**或作品集90分以上資格</li>
+            <li>諮詢課堂內容包括：作品集檢查、排版建議、入學資訊</li>
+            <li>課堂全程錄影，方便複習與跟進</li>
+            <li>課程專注作品集製作，不包含入學申請手續</li>
+          </ul>
+        </div>
       </div>
     </div>
 
@@ -1020,20 +1040,40 @@ nav.sticky {
       <div class="course-card-header">
         <img src="icon-regular.png" alt="常規課程" class="course-icon">
         <div>
-          <div class="course-badge">常規課程</div>
           <div class="course-title">常規課程 (12歲以上)</div>
         </div>
       </div>
       <div class="course-card-body">
-        <ul class="star-list">
-          <li>適合零基礎及初中以上，1-4人小班</li>
-          <li>七年經驗，與30多間學校／機構合作</li>
-          <li>學員可接觸時裝設計、室內設計、平面設計、電繪、雕塑、3D打印等多媒介</li>
-          <li>2小時1堂，4堂=$1400</li>
-        </ul>
+        <div class="course-table">
+          <div><span>適合對象：</span>初中及零基礎藝術愛好者</div>
+          <div><span>年齡/學歷：</span>12歲以上</div>
+          <div><span>班型：</span> 1-4人小組</div>
+          <div><span>導師：</span>資深導師</div>
+          <div><span>形式：</span> 線上/實體均可</div>
+        </div>
+        <div class="course-section">
+          <div class="price-table">
+            <table>
+              <tr>
+                <th>堂數</th><th>費用</th>
+              </tr>
+              <tr>
+                <td>4</td><td>$1400</td>
+              </tr>
+            </table>
+          </div>
+          <div class="course-discount">
+            <b>最新優惠：</b>
+            二人同行95折、四人同行9折、六人同行85折
+          </div>
+        </div>
         <div class="course-note">
-          🔅啟發藝術熱情，提升技法與創造力<br>
-          🌟二人同行95折、四人同行9折、六人同行85折
+          <b>課程亮點：</b>
+          <ul>
+            <li>七年經驗，合作30+學校及機構</li>
+            <li>多媒介體驗：時裝、室內設計、3D打印、電繪等</li>
+            <li>啟發藝術熱情與創意思維，提升技法</li>
+          </ul>
         </div>
       </div>
     </div>
@@ -1043,23 +1083,50 @@ nav.sticky {
       <div class="course-card-header">
         <img src="icon-dse.png" alt="視藝呈分試課程" class="course-icon">
         <div>
-          <div class="course-badge">DSE&IBVA</div>
           <div class="course-title">視藝呈分試課程（DSE/IBVA）</div>
         </div>
       </div>
       <div class="course-card-body">
-        <ul class="star-list">
-          <li>12歲以上，針對 DSE/IBVA 呈分</li>
-          <li>DSE 5**導師主理，超過千位學生協助經驗</li>
-          <li>每班4-6人，針對弱點並根據考試要求訓練</li>
-          <li>平面/立體/比賽/創意主題全覆蓋</li>
-        </ul>
+        <div class="course-table">
+          <div><span>適合對象：</span>DSE/IBVA 學生</div>
+          <div><span>年齡/學歷：</span>12歲以上</div>
+          <div><span>班型：</span> 4-6人小組</div>
+          <div><span>導師：</span> DSE 5** 導師</div>
+          <div><span>形式：</span> 線上/實體均可</div>
+        </div>
+        <div class="course-section">
+          <div class="price-table">
+            <table>
+              <tr>
+                <th>計劃</th><th>堂數</th><th>費用</th>
+              </tr>
+              <tr>
+                <td>Plan A</td><td>1</td><td>$480</td>
+              </tr>
+              <tr>
+                <td>Plan B</td><td>4</td><td>$1880</td>
+              </tr>
+              <tr>
+                <td>Plan C</td><td>10</td><td>$4200</td>
+              </tr>
+            </table>
+          </div>
+          <div class="course-discount">
+            <b>最新優惠：</b>
+            二人同行9折、四人同行85折、六人同行8折
+          </div>
+        </div>
         <div class="course-note">
-          🌟二人同行9折、四人同行85折、六人同行8折<br>
-          🌟2小時1堂，PlanA-1堂=$480，PlanB-4堂=$1880，PlanC-10堂=$4200
+          <b>課程亮點：</b>
+          <ul>
+            <li>八年教學經驗，協助千位學生SBA高分</li>
+            <li>分單元針對考試分數訓練</li>
+            <li>平面與立體創作、比賽作品全覆蓋</li>
+          </ul>
         </div>
       </div>
     </div>
+
   </div>
 </section>
     <section id="locations">
