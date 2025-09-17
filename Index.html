@@ -636,83 +636,120 @@ nav.sticky {
   }
   .course-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(285px, 1fr));
-  gap: 1.5em;
-  margin-top: 1.5em;
+  grid-template-columns: repeat(auto-fit, minmax(265px, 1fr));
+  gap: 1.4em;
+  margin-top: 2em;
+  margin-bottom: 2em;
 }
-.course-card {
+
+.course-card-collapsed {
   background: linear-gradient(120deg, #eafcff 0%, #fdf2f2 100%);
-  border-radius: 16px;
+  border-radius: 18px;
   box-shadow: 0 2px 16px #76c7f430;
-  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 1em 0.9em 1em 0.9em;
   color: var(--deepblue);
   cursor: pointer;
   outline: none;
-  border: 2px solid transparent;
   transition: box-shadow 0.17s, border 0.17s;
+  border: 2px solid transparent;
   position: relative;
-  display: flex;
-  flex-direction: column;
 }
-.course-card:focus,
-.course-card:hover {
+.course-card-collapsed:focus,
+.course-card-collapsed:hover {
   box-shadow: 0 4px 20px #ff7e7930;
   border: 2px solid var(--green);
 }
+
 .course-card-header {
   display: flex;
   align-items: center;
   gap: 1em;
-  min-height: 62px;
-  padding: 1.1em 1.3em 1.1em 1em;
+  min-height: 74px;
 }
-.course-title {
-  font-size: 1.13em;
+
+.course-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  object-fit: cover;
+  background: #fff;
+  border: 2px solid #98d6c1;
+  box-shadow: 0 1px 8px #4e8d6b15;
+  margin-right: 2px;
+  flex-shrink: 0;
+}
+
+.course-badge {
+  background: linear-gradient(90deg, var(--green) 50%, #fff 100%);
+  color: var(--deepblue);
+  padding: 0.14em 1em 0.11em 1em;
+  border-radius: 2em;
+  font-size: 1em;
+  letter-spacing: 1px;
+  font-family: 'Montserrat', 'Noto Sans TC', Arial, sans-serif;
   font-weight: 700;
-  color: var(--coral);
-  letter-spacing: 0.5px;
-  line-height: 1.3;
-  flex: 1;
+  display: inline-block;
+  margin-bottom: 0.12em;
 }
+
+.course-title {
+  font-size: 0.99em;
+  color: var(--coral);
+  font-weight: bold;
+  margin-bottom: 0.13em;
+  margin-top: 0.08em;
+  line-height: 1.2;
+}
+.course-school {
+  font-size: 0.93em;
+  color: #28527a;
+  font-weight: normal;
+}
+
 .expand-arrow {
-  font-size: 1.38em;
+  margin-left: auto;
+  font-size: 1.3em;
   color: var(--deepblue);
   transition: transform 0.22s;
-  margin-left: auto;
+  font-family: Arial, sans-serif;
+  user-select: none;
 }
-.course-card.active .expand-arrow {
+.course-card-collapsed.active .expand-arrow {
   transform: rotate(180deg);
 }
-.course-card-detail {
+
+.course-card-expand {
   max-height: 0;
   overflow: hidden;
   opacity: 0;
-  padding: 0 1.2em;
-  transition: max-height 0.38s cubic-bezier(0.4,0,0.2,1), opacity 0.32s;
+  transition: max-height 0.35s cubic-bezier(0.4,0,0.2,1), opacity 0.33s;
   will-change: max-height, opacity;
+  padding-left: 0.17em;
+  padding-right: 0.17em;
 }
-.course-card.active .course-card-detail {
+.course-card-collapsed.active .course-card-expand {
   opacity: 1;
-  max-height: 1200px;
-  padding-bottom: 1.3em;
-  padding-top: 0.2em;
+  max-height: 650px;
+  margin-top: 0.7em;
 }
+
+.course-card-expand ul.star-list {
+  margin: 0.18em 0 0.1em 1em;
+}
+
 .course-note {
   background: #fffbe6;
   color: var(--darkgreen);
   border-radius: 8px;
   padding: 0.42em 1em;
   font-size: 0.97em;
-  margin-bottom: 0.7em;
-  margin-top: 0.28em;
+  margin-top: 0.5em;
+  margin-bottom: 0.15em;
 }
-.course-card-detail ul.star-list {
-  margin: 0.18em 0 0.1em 1em;
-}
-.course-card-detail ul.dot-list {
-  margin: 0.18em 0 0.1em 1em;
-  font-size: 0.97em;
-}
+
 @media (max-width: 700px) {
   .course-grid {
     grid-template-columns: 1fr;
@@ -720,10 +757,15 @@ nav.sticky {
   }
   .course-card-header {
     min-height: 50px;
-    padding: 0.9em 1em 0.9em 0.7em;
+    gap: 0.6em;
+  }
+  .course-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 8px;
   }
   .course-title {
-    font-size: 1.01em;
+    font-size: 0.97em;
   }
 }
   </style>
@@ -946,89 +988,76 @@ nav.sticky {
     <section id="course-detail">
   <h2>課程內容・重點</h2>
   <div class="course-grid">
-    <!-- 1. 香港及外國升學作品集課程 -->
-    <div class="course-card" tabindex="0">
+    <!-- 升學作品集課程 -->
+    <div class="course-card-collapsed" tabindex="0">
       <div class="course-card-header">
-        <div class="course-title">香港及外國升學作品集課程</div>
+        <div>
+          <div class="course-badge">升學作品集</div>
+          <div class="course-title">香港及外國升學作品集課程<br><span class="course-school">（如 UAL, PolyU）</span></div>
+        </div>
         <span class="expand-arrow">▼</span>
       </div>
-      <div class="course-card-detail">
-        <div class="course-note">（適用於報考 UAL, PolyU, CSM 等，專業升學作品集訓練）</div>
+      <div class="course-card-expand">
         <ul class="star-list">
           <li>二人同行9折、四人同行85折、六人同行8折</li>
           <li>2小時=1堂</li>
-          <li>
-            <b>Plan A</b>：15堂 = $6750<br>
-            （包1次指定大學導師1對1諮詢）
-          </li>
-          <li>
-            <b>Plan B</b>：30堂 = $12600<br>
-            （包2次指定大學導師1對1諮詢）
-          </li>
-          <li>
-            <b>Plan C</b>：60堂 = $24000<br>
-            （包4次指定大學導師1對1諮詢）
-          </li>
+          <li><b>Plan A</b>：15堂=$6750（包一次指定導師1對1諮詢）</li>
+          <li><b>Plan B</b>：30堂=$12600（包兩次指定導師1對1諮詢）</li>
+          <li><b>Plan C</b>：60堂=$24000（包四次指定導師1對1諮詢）</li>
         </ul>
         <div class="course-note">
-          指定導師必須就讀或畢業於該大學及考獲DSE VA 5**或作品集90分或以上。<br>
-          諮詢內容：作品集排版參考、意見、部分入學資訊。課程主力完成作品集，不含入學手續申請。
+          指定導師必須就讀/畢業於相關大學，DSE VA 5** 或作品集90分或以上。<br>
+          諮詢課堂內容包括：檢查作品集、排版、提供意見及入學資訊，課程主力完成作品集，不含入學手續申請。
         </div>
         <ul class="dot-list">
-          <li>剩餘課堂由 Victor Sir 安排。</li>
-          <li>諮詢課堂內容包括檢查作品集、排版、提供意見及部份入學資訊。</li>
-          <li>全程錄影線上進行，方便跟進。</li>
+          <li>剩餘課堂由 Victor Sir 安排，全程線上錄影方便跟進</li>
         </ul>
       </div>
     </div>
-    <!-- 2. 常規課程(12歲以上) -->
-    <div class="course-card" tabindex="0">
+
+    <!-- 常規課程 -->
+    <div class="course-card-collapsed" tabindex="0">
       <div class="course-card-header">
-        <div class="course-title">常規課程 (12歲以上)</div>
+        <div>
+          <div class="course-badge">常規課程</div>
+          <div class="course-title">常規課程 (12歲以上)</div>
+        </div>
         <span class="expand-arrow">▼</span>
       </div>
-      <div class="course-card-detail">
+      <div class="course-card-expand">
         <ul class="star-list">
-          <li>適合零基礎及初中以上學生</li>
-          <li>與30多間中學及私人機構合作，舉辦多項課程及比賽</li>
-          <li>課程開辦七年，專業經驗豐富</li>
-          <li>每班1-4人，針對弱點教學</li>
-          <li>教授創意主題、比賽作品、傳統及多媒介（時裝設計、室內設計、平面設計、電繪、地景模型、雕塑、3D打印等）</li>
+          <li>適合零基礎及初中以上，1-4人小班</li>
+          <li>七年經驗，與30多間學校／機構合作</li>
+          <li>學員可接觸時裝設計、室內設計、平面設計、電繪、雕塑、3D打印等多媒介</li>
+          <li>2小時1堂，4堂=$1400</li>
         </ul>
         <div class="course-note">
-          🔅啟發藝術熱情、拓展媒介體驗、提升藝術鑑賞與批判性思維。<br>
-          ✅課程2小時1堂，4堂=$1400
+          🔅啟發藝術熱情，提升技法與創造力<br>
+          🌟二人同行95折、四人同行9折、六人同行85折
         </div>
-        <ul class="star-list">
-          <li>二人同行95折、四人同行9折、六人同行85折</li>
-        </ul>
       </div>
     </div>
-    <!-- 3. 視藝呈分試課程（DSE & IBVA） -->
-    <div class="course-card" tabindex="0">
+
+    <!-- 視藝呈分試課程 -->
+    <div class="course-card-collapsed" tabindex="0">
       <div class="course-card-header">
-        <div class="course-title">視藝呈分試課程（DSE & IBVA）</div>
+        <div>
+          <div class="course-badge">DSE&IBVA</div>
+          <div class="course-title">視藝呈分試課程（DSE/IBVA）</div>
+        </div>
         <span class="expand-arrow">▼</span>
       </div>
-      <div class="course-card-detail">
+      <div class="course-card-expand">
         <ul class="star-list">
-          <li>適合12歲以上學生</li>
-          <li>幫助學生發展視覺藝術基本技能與創意思維</li>
-          <li>DSE 5**導師主理，SBA協助經驗豐富</li>
-          <li>合作學校/機構超過30間，已開辦八年</li>
-          <li>每班4-6人，針對學生弱點、根據呈分試要求教學</li>
-          <li>課程分多單元，內容針對考試分數訓練</li>
-          <li>教授平面與立體作品、創意主題與比賽作品</li>
+          <li>12歲以上，針對 DSE/IBVA 呈分</li>
+          <li>DSE 5**導師主理，超過千位學生協助經驗</li>
+          <li>每班4-6人，針對弱點並根據考試要求訓練</li>
+          <li>平面/立體/比賽/創意主題全覆蓋</li>
         </ul>
         <div class="course-note">
-          ✅二人同行9折、四人同行85折、六人同行8折<br>
-          ✅2小時1堂
+          🌟二人同行9折、四人同行85折、六人同行8折<br>
+          🌟2小時1堂，PlanA-1堂=$480，PlanB-4堂=$1880，PlanC-10堂=$4200
         </div>
-        <ul class="dot-list">
-          <li>PlanA：1堂 = $480</li>
-          <li>PlanB：4堂 = $1880</li>
-          <li>PlanC：10堂 = $4200</li>
-        </ul>
       </div>
     </div>
   </div>
@@ -1134,25 +1163,27 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   });
 });
-    // 課程卡片點擊展開/收起
+   // 支援 teacher / course 卡片展開
 document.addEventListener("DOMContentLoaded", function() {
-  var courseCards = document.querySelectorAll('.course-card');
-  courseCards.forEach(function(card) {
-    card.addEventListener('click', function(e) {
-      // 避免同時展開多個（如要允許多個同時展開，移除下面兩行）
-      if (!card.classList.contains('active')) {
-        courseCards.forEach(function(c) { c.classList.remove('active'); });
-      }
-      card.classList.toggle('active');
+  function setupCollapsible(selector) {
+    var cards = document.querySelectorAll(selector);
+    cards.forEach(function(card) {
+      card.addEventListener('click', function(e) {
+        if (!card.classList.contains('active')) {
+          cards.forEach(function(c) { c.classList.remove('active'); });
+        }
+        card.classList.toggle('active');
+      });
+      card.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === " ") {
+          e.preventDefault();
+          card.click();
+        }
+      });
     });
-    // 支援鍵盤（Enter/Space）開關
-    card.addEventListener('keydown', function(e) {
-      if (e.key === 'Enter' || e.key === " ") {
-        e.preventDefault();
-        card.click();
-      }
-    });
-  });
+  }
+  setupCollapsible('.tutor-card-collapsed');
+  setupCollapsible('.course-card-collapsed');
 });
     </script>
 </body></html>
