@@ -1162,28 +1162,6 @@ document.addEventListener("DOMContentLoaded", function() {
       }
     });
   });
-});
-   // 支援 teacher / course 卡片展開
-document.addEventListener("DOMContentLoaded", function() {
-  function setupCollapsible(selector) {
-    var cards = document.querySelectorAll(selector);
-    cards.forEach(function(card) {
-      card.addEventListener('click', function(e) {
-        if (!card.classList.contains('active')) {
-          cards.forEach(function(c) { c.classList.remove('active'); });
-        }
-        card.classList.toggle('active');
-      });
-      card.addEventListener('keydown', function(e) {
-        if (e.key === 'Enter' || e.key === " ") {
-          e.preventDefault();
-          card.click();
-        }
-      });
-    });
-  }
-  setupCollapsible('.tutor-card-collapsed');
-  setupCollapsible('.course-card-collapsed');
-});
+})
     </script>
 </body></html>
