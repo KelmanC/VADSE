@@ -634,6 +634,97 @@ nav.sticky {
   .tutor-title {
     font-size: 0.97em;
   }
+  .course-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(285px, 1fr));
+  gap: 1.5em;
+  margin-top: 1.5em;
+}
+.course-card {
+  background: linear-gradient(120deg, #eafcff 0%, #fdf2f2 100%);
+  border-radius: 16px;
+  box-shadow: 0 2px 16px #76c7f430;
+  padding: 0;
+  color: var(--deepblue);
+  cursor: pointer;
+  outline: none;
+  border: 2px solid transparent;
+  transition: box-shadow 0.17s, border 0.17s;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.course-card:focus,
+.course-card:hover {
+  box-shadow: 0 4px 20px #ff7e7930;
+  border: 2px solid var(--green);
+}
+.course-card-header {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  min-height: 62px;
+  padding: 1.1em 1.3em 1.1em 1em;
+}
+.course-title {
+  font-size: 1.13em;
+  font-weight: 700;
+  color: var(--coral);
+  letter-spacing: 0.5px;
+  line-height: 1.3;
+  flex: 1;
+}
+.expand-arrow {
+  font-size: 1.38em;
+  color: var(--deepblue);
+  transition: transform 0.22s;
+  margin-left: auto;
+}
+.course-card.active .expand-arrow {
+  transform: rotate(180deg);
+}
+.course-card-detail {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  padding: 0 1.2em;
+  transition: max-height 0.38s cubic-bezier(0.4,0,0.2,1), opacity 0.32s;
+  will-change: max-height, opacity;
+}
+.course-card.active .course-card-detail {
+  opacity: 1;
+  max-height: 1200px;
+  padding-bottom: 1.3em;
+  padding-top: 0.2em;
+}
+.course-note {
+  background: #fffbe6;
+  color: var(--darkgreen);
+  border-radius: 8px;
+  padding: 0.42em 1em;
+  font-size: 0.97em;
+  margin-bottom: 0.7em;
+  margin-top: 0.28em;
+}
+.course-card-detail ul.star-list {
+  margin: 0.18em 0 0.1em 1em;
+}
+.course-card-detail ul.dot-list {
+  margin: 0.18em 0 0.1em 1em;
+  font-size: 0.97em;
+}
+@media (max-width: 700px) {
+  .course-grid {
+    grid-template-columns: 1fr;
+    gap: 1em;
+  }
+  .course-card-header {
+    min-height: 50px;
+    padding: 0.9em 1em 0.9em 0.7em;
+  }
+  .course-title {
+    font-size: 1.01em;
+  }
 }
   </style>
   <!-- Google tag (gtag.js) -->
@@ -853,26 +944,95 @@ nav.sticky {
   </div>
 </section>
     <section id="course-detail">
-      <h2>課程內容・重點</h2>
-      <ul class="star-list">
-        <li><b>卷一卷二考試堂：</b> 針對畫速、構圖、技巧、拆解題、評賞、混合媒介、上色、構圖思考等，並會根據分數及學生弱項設定教學內容</li>
-        <li><b>SBA專科堂：</b> 改善作品質素、提供專業意見、SBA簿內容排版、道具協助、deadline管理</li>
-        <li><b>操卷訓練：</b> 二至三月起設操卷模式，按同學選擇題型針對操卷與解題</li>
-        <li><b>初中藝術基礎課程：</b> 適合零基礎及熱愛藝術學生，啟發藝術熱情，拓展媒介體驗，涵蓋傳統媒介、時裝設計、室內設計、平面設計、電繪、地景模型、雕塑、3D打印等</li>
-        <li><b>每班1-4人，個別跟進進度及指導，助你突破創意困難、管理時間與提升技能</b></li>
-        <li><b>二人同行95折，四人同行9折，六人同行85折！</b></li>
-      </ul>
-      <div style="margin:1.1em 0 0.8em 0;color:var(--darkgreen);font-weight:bold;">
-        所有班型可因應需要個別調整內容及堂數。
+  <h2>課程內容・重點</h2>
+  <div class="course-grid">
+    <!-- 1. 香港及外國升學作品集課程 -->
+    <div class="course-card" tabindex="0">
+      <div class="course-card-header">
+        <div class="course-title">香港及外國升學作品集課程</div>
+        <span class="expand-arrow">▼</span>
       </div>
-      <h2 style="margin-top:2em;">上堂須知</h2>
-      <ul class="star-list">
-        <li>考試va堂第一堂：請帶考試圖片或作品照片，普通文具即可</li>
-        <li>SBA作品集堂第一堂：帶齊SBA所有東西（如不能帶，帶相片），文具、功課亦可帶</li>
-        <li>每個學生會獲專屬進度追蹤，考試技巧人手調整</li>
-        <li>如有比賽/操卷/比賽/立體作品需求，歡迎查詢</li>
-      </ul>
-    </section>
+      <div class="course-card-detail">
+        <div class="course-note">（適用於報考 UAL, PolyU, CSM 等，專業升學作品集訓練）</div>
+        <ul class="star-list">
+          <li>二人同行9折、四人同行85折、六人同行8折</li>
+          <li>2小時=1堂</li>
+          <li>
+            <b>Plan A</b>：15堂 = $6750<br>
+            （包1次指定大學導師1對1諮詢）
+          </li>
+          <li>
+            <b>Plan B</b>：30堂 = $12600<br>
+            （包2次指定大學導師1對1諮詢）
+          </li>
+          <li>
+            <b>Plan C</b>：60堂 = $24000<br>
+            （包4次指定大學導師1對1諮詢）
+          </li>
+        </ul>
+        <div class="course-note">
+          指定導師必須就讀或畢業於該大學及考獲DSE VA 5**或作品集90分或以上。<br>
+          諮詢內容：作品集排版參考、意見、部分入學資訊。課程主力完成作品集，不含入學手續申請。
+        </div>
+        <ul class="dot-list">
+          <li>剩餘課堂由 Victor Sir 安排。</li>
+          <li>諮詢課堂內容包括檢查作品集、排版、提供意見及部份入學資訊。</li>
+          <li>全程錄影線上進行，方便跟進。</li>
+        </ul>
+      </div>
+    </div>
+    <!-- 2. 常規課程(12歲以上) -->
+    <div class="course-card" tabindex="0">
+      <div class="course-card-header">
+        <div class="course-title">常規課程 (12歲以上)</div>
+        <span class="expand-arrow">▼</span>
+      </div>
+      <div class="course-card-detail">
+        <ul class="star-list">
+          <li>適合零基礎及初中以上學生</li>
+          <li>與30多間中學及私人機構合作，舉辦多項課程及比賽</li>
+          <li>課程開辦七年，專業經驗豐富</li>
+          <li>每班1-4人，針對弱點教學</li>
+          <li>教授創意主題、比賽作品、傳統及多媒介（時裝設計、室內設計、平面設計、電繪、地景模型、雕塑、3D打印等）</li>
+        </ul>
+        <div class="course-note">
+          🔅啟發藝術熱情、拓展媒介體驗、提升藝術鑑賞與批判性思維。<br>
+          ✅課程2小時1堂，4堂=$1400
+        </div>
+        <ul class="star-list">
+          <li>二人同行95折、四人同行9折、六人同行85折</li>
+        </ul>
+      </div>
+    </div>
+    <!-- 3. 視藝呈分試課程（DSE & IBVA） -->
+    <div class="course-card" tabindex="0">
+      <div class="course-card-header">
+        <div class="course-title">視藝呈分試課程（DSE & IBVA）</div>
+        <span class="expand-arrow">▼</span>
+      </div>
+      <div class="course-card-detail">
+        <ul class="star-list">
+          <li>適合12歲以上學生</li>
+          <li>幫助學生發展視覺藝術基本技能與創意思維</li>
+          <li>DSE 5**導師主理，SBA協助經驗豐富</li>
+          <li>合作學校/機構超過30間，已開辦八年</li>
+          <li>每班4-6人，針對學生弱點、根據呈分試要求教學</li>
+          <li>課程分多單元，內容針對考試分數訓練</li>
+          <li>教授平面與立體作品、創意主題與比賽作品</li>
+        </ul>
+        <div class="course-note">
+          ✅二人同行9折、四人同行85折、六人同行8折<br>
+          ✅2小時1堂
+        </div>
+        <ul class="dot-list">
+          <li>PlanA：1堂 = $480</li>
+          <li>PlanB：4堂 = $1880</li>
+          <li>PlanC：10堂 = $4200</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
     <section id="locations">
       <h2>上課地點</h2>
       <div class="locations-flex">
