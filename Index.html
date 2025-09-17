@@ -1134,5 +1134,25 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   });
 });
+    // 課程卡片點擊展開/收起
+document.addEventListener("DOMContentLoaded", function() {
+  var courseCards = document.querySelectorAll('.course-card');
+  courseCards.forEach(function(card) {
+    card.addEventListener('click', function(e) {
+      // 避免同時展開多個（如要允許多個同時展開，移除下面兩行）
+      if (!card.classList.contains('active')) {
+        courseCards.forEach(function(c) { c.classList.remove('active'); });
+      }
+      card.classList.toggle('active');
+    });
+    // 支援鍵盤（Enter/Space）開關
+    card.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === " ") {
+        e.preventDefault();
+        card.click();
+      }
+    });
+  });
+});
     </script>
 </body></html>
