@@ -761,7 +761,7 @@ nav.sticky {
   /* Poster Console (Carousel) */
 .poster-console {
   position: relative;
-  max-width: 1050px;
+  max-width: 820px; /* reduced from 1050px to keep things smaller */
   margin: 1.2em auto 2em auto;
   border-radius: 14px;
 }
@@ -775,6 +775,12 @@ nav.sticky {
   position: relative;
 }
 
+.poster-track-inner {
+  display: flex;
+  width: 100%;
+  transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 .poster-slide {
   flex: 0 0 100%;
   display: flex;
@@ -783,8 +789,10 @@ nav.sticky {
   padding: 0.6em;
 }
 
+/* Core image sizing: smaller and capped */
 .poster-slide img {
-  width: 160px;            /* keep same size as your poster-list on desktop */
+  width: clamp(140px, 30vw, 220px); /* responsive but capped */
+  max-height: 320px;               /* prevent overly tall images */
   height: auto;
   border-radius: 13px;
   box-shadow: 0 2px 14px #4e8d6b1c;
@@ -842,30 +850,25 @@ nav.sticky {
   transform: scale(1.1);
 }
 
-/* Animation for sliding */
-.poster-track-inner {
-  display: flex;
-  width: 100%;
-  transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Mobile adjustments to keep same look-and-feel as your poster-list */
+/* Tablet */
 @media (max-width: 900px) {
+  .poster-console { max-width: 92vw; }
   .poster-slide img {
-    max-width: 98vw;
-    width: 98vw;
-    min-width: 0;
+    width: clamp(140px, 55vw, 260px);
+    max-height: 300px;
   }
 }
+
+/* Mobile */
 @media (max-width: 600px) {
   .poster-slide img {
-    width: 100%;
-    max-width: 350px;
+    width: clamp(140px, 80vw, 300px);
+    max-width: 300px;
+    max-height: 280px;
     border-radius: 14px;
     box-shadow: 0 4px 18px #0002;
   }
   .poster-arrow { width: 34px; height: 34px; font-size: 20px; }
-  }
  }
   </style>
 </head>
