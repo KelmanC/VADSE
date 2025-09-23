@@ -758,6 +758,114 @@ nav.sticky {
   .course-table {
     font-size: 0.97em;
   }
+  /* Poster Console (Carousel) */
+.poster-console {
+  position: relative;
+  max-width: 1050px;
+  margin: 1.2em auto 2em auto;
+  border-radius: 14px;
+}
+
+.poster-track {
+  display: flex;
+  overflow: hidden;
+  border-radius: 14px;
+  box-shadow: 0 2px 14px #4e8d6b1c;
+  background: #fff;
+  position: relative;
+}
+
+.poster-slide {
+  flex: 0 0 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.6em;
+}
+
+.poster-slide img {
+  width: 160px;            /* keep same size as your poster-list on desktop */
+  height: auto;
+  border-radius: 13px;
+  box-shadow: 0 2px 14px #4e8d6b1c;
+  object-fit: cover;
+  transition: transform 0.18s;
+  background: #fff;
+}
+
+.poster-slide img:hover {
+  transform: scale(1.06) rotate(-1deg);
+}
+
+/* Arrows */
+.poster-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 2px solid var(--green);
+  background: var(--sun);
+  color: var(--deepblue);
+  font-size: 22px;
+  line-height: 34px;
+  text-align: center;
+  box-shadow: 0 3px 10px #4e8d6b13;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.18s, background 0.18s;
+}
+.poster-arrow:hover { transform: translateY(-50%) scale(0.96); background: #fff8c2; }
+.poster-arrow.prev { left: 6px; }
+.poster-arrow.next { right: 6px; }
+
+/* Dots */
+.poster-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 10px;
+}
+.poster-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #cbdde9;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: transform 0.18s, background 0.18s, border 0.18s;
+}
+.poster-dot[aria-selected="true"] {
+  background: var(--coral);
+  border-color: var(--green);
+  transform: scale(1.1);
+}
+
+/* Animation for sliding */
+.poster-track-inner {
+  display: flex;
+  width: 100%;
+  transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Mobile adjustments to keep same look-and-feel as your poster-list */
+@media (max-width: 900px) {
+  .poster-slide img {
+    max-width: 98vw;
+    width: 98vw;
+    min-width: 0;
+  }
+}
+@media (max-width: 600px) {
+  .poster-slide img {
+    width: 100%;
+    max-width: 350px;
+    border-radius: 14px;
+    box-shadow: 0 4px 18px #0002;
+  }
+  .poster-arrow { width: 34px; height: 34px; font-size: 20px; }
+  }
  }
   </style>
 </head>
@@ -790,10 +898,25 @@ nav.sticky {
         2025年DSE VA 3位學生榮獲5**和8位學生5*
       </div>
     </section>
-   <div class="poster-list">
+   <div class="poster-console" aria-label="宣傳海報輪播">
+  <div class="poster-track">
+    <div class="poster-slide">
       <img src="WhatsApp Image 2025-07-30 at 9.55.03 PM (1).jpeg" alt="Victor Studio 海報1" loading="lazy">
+    </div>
+    <div class="poster-slide">
       <img src="WhatsApp Image 2025-07-30 at 9.55.03 PM.jpeg" alt="Victor Studio 海報2" loading="lazy">
-</div>
+    </div>
+    <!-- 若日後有更多海報，複製 poster-slide 並更換圖片 -->
+  </div>
+
+  <!-- Controls -->
+  <button class="poster-arrow prev" aria-label="上一張" type="button">‹</button>
+  <button class="poster-arrow next" aria-label="下一張" type="button">›</button>
+
+  <!-- Dots -->
+  <div class="poster-dots" role="tablist" aria-label="海報分頁">
+    <!-- JS 會自動生成 dot -->
+  </div>
 <section id="photos">
   <h2>課室環境</h2>
   <div class="poster-group">
@@ -1109,6 +1232,103 @@ document.addEventListener("DOMContentLoaded", function() {
         e.preventDefault();
         card.click();
       }
+      document.addEventListener("DOMContentLoaded", function() {
+  const consoleEl = document.querySelector('.poster-console');
+  if (!consoleEl) return;
+
+  const track = consoleEl.querySelector('.poster-track');
+  const slides = Array.from(consoleEl.querySelectorAll('.poster-slide'));
+  const prevBtn = consoleEl.querySelector('.poster-arrow.prev');
+  const nextBtn = consoleEl.querySelector('.poster-arrow.next');
+  const dotsWrap = consoleEl.querySelector('.poster-dots');
+
+  // Wrap slides in an inner track to allow transform
+  const inner = document.createElement('div');
+  inner.className = 'poster-track-inner';
+  // Move slides into inner
+  slides.forEach(s => inner.appendChild(s));
+  track.appendChild(inner);
+
+  // Build dots
+  slides.forEach((_, i) => {
+    const d = document.createElement('button');
+    d.className = 'poster-dot';
+    d.type = 'button';
+    d.setAttribute('role', 'tab');
+    d.setAttribute('aria-label', '第 ' + (i + 1) + ' 張');
+    d.addEventListener('click', () => goTo(i, true));
+    dotsWrap.appendChild(d);
+  });
+
+  let index = 0;
+  let autoTimer = null;
+  const intervalMs = 5000; // auto change time (5s). Adjust as needed.
+
+  function update() {
+    inner.style.transform = `translateX(-${index * 100}%)`;
+    const dots = dotsWrap.querySelectorAll('.poster-dot');
+    dots.forEach((d, i) => d.setAttribute('aria-selected', i === index ? 'true' : 'false'));
+  }
+
+  function goTo(i, user = false) {
+    index = (i + slides.length) % slides.length;
+    update();
+    // If the user interacted, reset timer so it doesn't immediately switch
+    if (user) restartAuto();
+  }
+
+  function next(user = false) { goTo(index + 1, user); }
+  function prev(user = false) { goTo(index - 1, user); }
+
+  prevBtn.addEventListener('click', () => prev(true));
+  nextBtn.addEventListener('click', () => next(true));
+
+  // Keyboard support
+  consoleEl.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') { prev(true); }
+    if (e.key === 'ArrowRight') { next(true); }
+  });
+  consoleEl.tabIndex = 0; // make console focusable
+
+  // Touch swipe
+  let startX = 0, dx = 0, touching = false;
+  track.addEventListener('touchstart', (e) => {
+    touching = true;
+    startX = e.touches[0].clientX;
+    dx = 0;
+    pauseAuto();
+  }, { passive: true });
+  track.addEventListener('touchmove', (e) => {
+    if (!touching) return;
+    dx = e.touches[0].clientX - startX;
+  }, { passive: true });
+  track.addEventListener('touchend', () => {
+    touching = false;
+    if (Math.abs(dx) > 40) {
+      if (dx < 0) next(true);
+      else prev(true);
+    }
+    restartAuto();
+  });
+
+  function startAuto() {
+    stopAuto();
+    autoTimer = setInterval(() => next(false), intervalMs);
+  }
+  function stopAuto() {
+    if (autoTimer) clearInterval(autoTimer);
+    autoTimer = null;
+  }
+  function pauseAuto() { stopAuto(); }
+  function restartAuto() { startAuto(); }
+
+  // Start
+  update();
+  startAuto();
+
+  // Pause on hover (desktop)
+  consoleEl.addEventListener('mouseenter', pauseAuto);
+  consoleEl.addEventListener('mouseleave', restartAuto);
     });
   });
 })
