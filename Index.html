@@ -758,7 +758,6 @@ nav.sticky {
   .course-table {
     font-size: 0.97em;
   }
-</script>
 </head>
 <body>
   <header>
@@ -1060,4 +1059,56 @@ nav.sticky {
     </div>
     © 2025 Victor Studio 視藝救星
   </footer>
-</html>
+   <script>
+    // Navbar active state on scroll
+    const navLinks = document.querySelectorAll('nav a[href^="#"]');
+    window.addEventListener('scroll', () => {
+      let fromTop = window.scrollY + 120;
+      navLinks.forEach(link => {
+        let section = document.querySelector(link.hash);
+        if (section) {
+          if (
+            section.offsetTop <= fromTop &&
+            section.offsetTop + section.offsetHeight > fromTop
+          ) {
+            navLinks.forEach(l => l.classList.remove('active'));
+            link.classList.add('active');
+          }
+        }
+      });
+    });
+    // Fade in sections on scroll (for Safari fallback)
+    document.addEventListener("DOMContentLoaded", function(){
+      var sections = document.querySelectorAll("main section, .tutor-panel, .loc-card, footer");
+      function showOnScroll(){
+        var winBottom = window.scrollY + window.innerHeight;
+        sections.forEach(function(sec){
+          var rect = sec.getBoundingClientRect();
+          var top = rect.top + window.scrollY;
+          if(winBottom > top+40) sec.style.opacity = 1;
+        });
+      }
+      showOnScroll();
+      window.addEventListener("scroll", showOnScroll);
+    });
+document.addEventListener("DOMContentLoaded", function() {
+  var cards = document.querySelectorAll('.tutor-card-collapsed');
+  cards.forEach(function(card) {
+    card.addEventListener('click', function(e) {
+      // 避免同時展開多個
+      if (!card.classList.contains('active')) {
+        cards.forEach(function(c) { c.classList.remove('active'); });
+      }
+      card.classList.toggle('active');
+    });
+    // 支援鍵盤（Enter/Space）開關
+    card.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === " ") {
+        e.preventDefault();
+        card.click();
+      }
+    });
+  });
+})
+    </script>
+</body></html>
