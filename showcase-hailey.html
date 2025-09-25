@@ -84,6 +84,7 @@
       object-fit: cover;
       background: #fff;
       transition: transform 0.17s;
+      cursor: pointer;
     }
     .art-gallery img:hover {
       transform: scale(1.08) rotate(-1deg);
@@ -121,6 +122,44 @@
       color: #fff;
       transform: scale(0.97);
     }
+
+    /* ---- Lightbox styles ---- */
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.85);
+      justify-content: center;
+      align-items: center;
+    }
+    .lightbox img {
+      max-width: 90%;
+      max-height: 85%;
+      border-radius: 12px;
+      box-shadow: 0 0 18px rgba(0,0,0,0.6);
+      animation: zoomIn 0.3s ease;
+    }
+    @keyframes zoomIn {
+      from { transform: scale(0.6); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+    .lightbox:target {
+      display: flex;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 18px;
+      right: 28px;
+      font-size: 2rem;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .lightbox-close:hover {
+      color: var(--coral);
+    }
   </style>
 </head>
 <body>
@@ -132,10 +171,27 @@
   <main>
     <div class="art-title">平面設計及插畫作品</div>
     <div class="art-gallery">
-      <img src="Hailey.jpeg" alt="Hailey Art 1" loading="lazy">
-      <!-- 更多作品可自行加入 -->
+      <a href="#img1"><img src="Hailey.jpeg" alt="Hailey Art 1" loading="lazy"></a>
     </div>
     <a class="showcase-back" href="index.html">← 返回主頁</a>
   </main>
+
+  <!-- Lightbox popups -->
+  <div id="img1" class="lightbox">
+    <a href="#" class="lightbox-close">&times;</a>
+    <img src="hailey-art1.jpg" alt="Hailey Art 1">
+  </div>
+  <div id="img2" class="lightbox">
+    <a href="#" class="lightbox-close">&times;</a>
+    <img src="hailey-art2.jpg" alt="Hailey Art 2">
+  </div>
+  <div id="img3" class="lightbox">
+    <a href="#" class="lightbox-close">&times;</a>
+    <img src="hailey-art3.jpg" alt="Hailey Art 3">
+  </div>
+  <div id="img4" class="lightbox">
+    <a href="#" class="lightbox-close">&times;</a>
+    <img src="hailey-art4.jpg" alt="Hailey Art 4">
+  </div>
 </body>
 </html>
