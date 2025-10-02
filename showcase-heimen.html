@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>Heiman 作品集｜Victor Studio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&family=Montserrat:wght@600&display=swap" rel="stylesheet">
+  <link rel="icon" href="INSTRUCTOR 1.JPG">
+  <style>
+    :root {
+      --sky: #76c7f4;
+      --green: #8cd867;
+      --sun: #ffe066;
+      --coral: #ff7e79;
+      --deepblue: #28527a;
+      --darkgreen: #4e8d6b;
+      --white: #fff;
+      --bg: linear-gradient(135deg, #eafcff 0%, #fffbe6 60%, #fdf2f2 100%);
+      --shadow: 0 4px 24px rgba(80,130,170,0.09);
+      --radius: 18px;
+    }
+    body {
+      margin: 0;
+      font-family: 'Noto Sans TC', 'Montserrat', Arial, sans-serif;
+      background: var(--bg);
+      color: #2d3559;
+      min-height: 100vh;
+    }
+    header {
+      background: linear-gradient(90deg, var(--sky) 60%, var(--sun) 100%);
+      color: var(--deepblue);
+      padding: 2.4rem 1rem 1.3rem 1rem;
+      text-align: center;
+    }
+    .logo {
+      width: 70px; height: 70px;
+      border-radius: 50%;
+      border: 3px solid var(--green);
+      background: #fff;
+      margin-bottom: 0.7em;
+      object-fit: cover;
+    }
+    h1 {
+      font-family: 'Montserrat', 'Noto Sans TC', Arial, sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--deepblue);
+      letter-spacing: 2px;
+      margin: 0 0 0.4em 0;
+      text-shadow: 1px 2px 10px #eafcff;
+    }
+    main {
+      max-width: 900px;
+      margin: 2em auto 2.5em auto;
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 2rem 1.2rem 2rem 1.2rem;
+    }
+    .art-title {
+      color: var(--coral);
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-top: 0.5em;
+      margin-bottom: 1em;
+      border-left: 7px solid var(--green);
+      padding-left: 0.7em;
+      background: linear-gradient(90deg, var(--sun) 0%, #fff 80%);
+      border-radius: 0 7px 7px 0;
+      display: inline-block;
+    }
+    .art-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.3em;
+      justify-content: flex-start;
+      margin-bottom: 2em;
+    }
+    .art-gallery img {
+      width: 220px;
+      max-width: 100%;
+      border-radius: 15px;
+      box-shadow: 0 2px 14px #4e8d6b21;
+      object-fit: cover;
+      background: #fff;
+      transition: transform 0.17s;
+      cursor: pointer;
+    }
+    .art-gallery img:hover {
+      transform: scale(1.08) rotate(-1deg);
+    }
+    @media (max-width: 700px) {
+      .art-gallery {
+        gap: 1em;
+        justify-content: center;
+      }
+      .art-gallery img {
+        width: 94vw;
+        max-width: 320px;
+      }
+      main {
+        padding: 1em 0.3em;
+      }
+      h1 { font-size: 1.1rem; }
+    }
+    .showcase-back {
+      display: inline-block;
+      margin-top: 1.1em;
+      padding: 0.5em 1.5em;
+      background: var(--green);
+      color: var(--deepblue);
+      border-radius: 22px;
+      font-weight: 700;
+      text-decoration: none;
+      font-size: 1em;
+      letter-spacing: 1px;
+      box-shadow: 0 2px 8px #4e8d6b16;
+      transition: background 0.15s, color 0.15s, transform 0.13s;
+    }
+    .showcase-back:hover {
+      background: var(--coral);
+      color: #fff;
+      transform: scale(0.97);
+    }
+
+    /* ---- Lightbox styles ---- */
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.85);
+      justify-content: center;
+      align-items: center;
+    }
+    .lightbox img {
+      max-width: 90%;
+      max-height: 85%;
+      border-radius: 12px;
+      box-shadow: 0 0 18px rgba(0,0,0,0.6);
+      animation: zoomIn 0.3s ease;
+    }
+    @keyframes zoomIn {
+      from { transform: scale(0.6); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+    .lightbox:target {
+      display: flex;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 18px;
+      right: 28px;
+      font-size: 2rem;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .lightbox-close:hover {
+      color: var(--coral);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="Logo.jpeg" class="logo" alt="Victor Studio Logo">
+    <h1>Heiman 作品集</h1>
+    <div style="font-size:1.1em;color:var(--darkgreen);font-weight:600;"> 作品集導師</div>
+  </header>
+  <main>
+    <div class="art-title">設計作品</div>
+    <div class="art-gallery">
+      <a href="#img1"><img src=" Heimen.jpeg" alt="Ariel Art 1" loading="lazy"></a>
+    </div>
+    <a class="showcase-back" href="index.html">← 返回主頁</a>
+  </main>
+
+  <!-- Lightbox popups -->
+  <div id="img1" class="lightbox">
+    <a href="#" class="lightbox-close">&times;</a>
+    <img src="Heimen.jpeg" alt="Hailey Art 1">
+  </div>
+  <div id="img2" class="lightbox">
+    <a href="#" class="lightbox-close">&times;</a>
+    <img src="hailey-art2.jpg" alt="Hailey Art 2">
+  </div>
+  <div id="img3" class="lightbox">
+    <a href="#" class="lightbox-close">&times;</a>
+    <img src="hailey-art3.jpg" alt="Hailey Art 3">
+  </div>
+  <div id="img4" class="lightbox">
+    <a href="#" class="lightbox-close">&times;</a>
+    <img src="hailey-art4.jpg" alt="Hailey Art 4">
+  </div>
+</body>
+</html>
