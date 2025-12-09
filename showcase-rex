@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>REX 老師作品集｜Victor Studio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&family=Montserrat:wght@600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --sky: #76c7f4;
+      --green: #8cd867;
+      --sun: #ffe066;
+      --coral: #ff7e79;
+      --deepblue: #28527a;
+      --darkgreen: #4e8d6b;
+      --white: #fff;
+      --bg: linear-gradient(135deg, #eafcff 0%, #fffbe6 60%, #fdf2f2 100%);
+      --shadow: 0 4px 24px rgba(80,130,170,0.09);
+      --radius: 18px;
+    }
+    body {
+      margin: 0;
+      font-family: 'Noto Sans TC', 'Montserrat', Arial, sans-serif;
+      background: var(--bg);
+      color: #2d3559;
+      min-height: 100vh;
+    }
+    header {
+      background: linear-gradient(90deg, var(--sky) 60%, var(--sun) 100%);
+      color: var(--deepblue);
+      padding: 2.2rem 1rem 1.2rem 1rem;
+      text-align: center;
+    }
+    .logo {
+      width: 70px; height: 70px;
+      border-radius: 50%;
+      border: 3px solid var(--green);
+      background: #fff;
+      margin-bottom: 0.7em;
+      object-fit: cover;
+    }
+    h1 {
+      font-family: 'Montserrat', 'Noto Sans TC', Arial, sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--deepblue);
+      letter-spacing: 2px;
+      margin: 0 0 0.4em 0;
+      text-shadow: 1px 2px 10px #eafcff;
+    }
+    main {
+      max-width: 900px;
+      margin: 2em auto 2.5em auto;
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 2rem 1.2rem 2rem 1.2rem;
+    }
+    .art-title {
+      color: var(--coral);
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-top: 0.5em;
+      margin-bottom: 1em;
+      border-left: 7px solid var(--green);
+      padding-left: 0.7em;
+      background: linear-gradient(90deg, var(--sun) 0%, #fff 80%);
+      border-radius: 0 7px 7px 0;
+      display: inline-block;
+    }
+    .art-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.3em;
+      justify-content: flex-start;
+      margin-bottom: 2em;
+    }
+    .art-gallery img {
+      width: 220px;
+      max-width: 100%;
+      border-radius: 15px;
+      box-shadow: 0 2px 14px #4e8d6b21;
+      object-fit: cover;
+      background: #fff;
+      cursor: zoom-in;
+      transition: transform 0.17s;
+    }
+    .art-gallery img:hover {
+      transform: scale(1.08) rotate(-1deg);
+    }
+    .info-card {
+      background: linear-gradient(90deg, #eafcff 80%, #fffbe6 100%);
+      border-left: 7px solid var(--green);
+      border-radius: 0 14px 14px 0;
+      padding: 1.1em 1.4em 0.7em 1.1em;
+      margin-bottom: 1.7em;
+      font-size: 1.08em;
+      box-shadow: 0 2px 12px #28527a0b;
+      color: #2d3559;
+      line-height: 1.8;
+    }
+    .showcase-back {
+      display: inline-block;
+      margin-top: 1.1em;
+      padding: 0.5em 1.5em;
+      background: var(--green);
+      color: var(--deepblue);
+      border-radius: 22px;
+      font-weight: 700;
+      text-decoration: none;
+      font-size: 1em;
+      letter-spacing: 1px;
+      box-shadow: 0 2px 8px #4e8d6b16;
+      transition: background 0.15s, color 0.15s, transform 0.13s;
+    }
+    .showcase-back:hover {
+      background: var(--coral);
+      color: #fff;
+      transform: scale(0.97);
+    }
+    /* Lightbox styles */
+    #lightbox-overlay {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      inset: 0;
+      background: rgba(36,48,71,0.88);
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      transition: background 0.2s;
+    }
+    #lightbox-overlay.active {
+      display: flex;
+    }
+    #lightbox-img {
+      max-width: 94vw;
+      max-height: 86vh;
+      border-radius: 20px;
+      box-shadow: 0 6px 36px #0008;
+      background: #fff;
+      margin-bottom: 1.7rem;
+      transition: box-shadow 0.2s;
+    }
+    #lightbox-close {
+      position: absolute;
+      top: 2.2vw;
+      right: 2.2vw;
+      font-size: 2.1rem;
+      color: #fff;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      text-shadow: 0 2px 8px #000;
+      z-index: 10001;
+      transition: color 0.19s;
+    }
+    #lightbox-close:hover {
+      color: #ffe066;
+    }
+    @media (max-width: 700px) {
+      .art-gallery {
+        gap: 1em;
+        justify-content: center;
+      }
+      .art-gallery img {
+        width: 94vw;
+        max-width: 320px;
+      }
+      main {
+        padding: 1em 0.3em;
+      }
+      h1 { font-size: 1.1rem; }
+      #lightbox-close {
+        top: 4vw;
+        right: 4vw;
+        font-size: 2.6rem;
+      }
+      #lightbox-img {
+        max-width: 98vw;
+        max-height: 68vh;
+        margin-bottom: 1.1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="REX.jpg" class="logo" alt="REX 導師">
+    <h1>REX 老師作品集</h1>
+    <div style="font-size:1.1em;color:var(--darkgreen);font-weight:600;">視覺藝術導師</div>
+  </header>
+  <main>
+    <div class="info-card">
+      目前就讀 PolyU 室內及環境設計，熱愛設計、攝影和藝術，擅長繪畫、雕塑、立體作品、海報設計及室內設計。<br><br>
+      <strong>作品經歷：</strong>
+      <ul>
+        <li>中學 SBA 作品系列《夢》於 2023/24 年度入選葛量洪視覺藝術獎，並先後於香港視覺藝術中心及 2024 香港藝術教育節（大會堂）展出</li>
+        <li>同系列作品入選 2024/25 年 Sovereign 藝術基金會香港學生獎，於 2025 年 Art Central 展覽</li>
+        <li>2024 年 DSE 繪畫卷獲 5*，SBA 分數 96/100</li>
+      </ul>
+      <strong>教學及工作經驗：</strong>
+      <ul>
+        <li>兩年 DSE 視覺藝術教學經驗，擅長繪畫卷教學及 SBA 作品構想與製作</li>
+        <li>曾參與香港歌手專輯設計，包括明信片及字體設計</li>
+      </ul>
+    </div>
+    <div class="art-title">創作作品選集</div>
+    <div class="art-gallery">
+      <a href="rex-art1.jpg" data-lightbox="gallery">
+        <img src="rex-art1-thumb.jpg" alt="REX Art 1">
+      </a>
+      <a href="rex-art2.jpg" data-lightbox="gallery">
+        <img src="rex-art2-thumb.jpg" alt="REX Art 2">
+      </a>
+      <a href="rex-art3.jpg" data-lightbox="gallery">
+        <img src="rex-art3-thumb.jpg" alt="REX Art 3">
+      </a>
+      <!-- 更多作品可持續新增 -->
+    </div>
+    <a class="showcase-back" href="index.html">← 返回主頁</a>
+  </main>
+
+  <!-- Lightbox 元素 -->
+  <div id="lightbox-overlay" tabindex="-1">
+    <img id="lightbox-img" src="" alt="">
+    <button id="lightbox-close" aria-label="關閉">×</button>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded',function(){
+      var overlay = document.getElementById('lightbox-overlay');
+      var overlayImg = document.getElementById('lightbox-img');
+      var closeBtn = document.getElementById('lightbox-close');
+      document.querySelectorAll('a[data-lightbox]').forEach(function(link){
+        link.addEventListener('click', function(e){
+          e.preventDefault();
+          overlay.classList.add('active');
+          overlayImg.src = this.href;
+          overlayImg.alt = this.querySelector('img')?.alt || '圖片預覽';
+          closeBtn.focus();
+        });
+      });
+      function closeLightbox(){
+        overlay.classList.remove('active');
+        overlayImg.src = '';
+        overlayImg.alt = '';
+      }
+      overlay.addEventListener('click', function(e){
+        if (e.target === overlay || e.target === closeBtn) closeLightbox();
+      });
+      document.addEventListener('keydown', function(e){
+        if (overlay.classList.contains('active') && (e.key==='Escape'||e.key==='Esc')) closeLightbox();
+      });
+    });
+  </script>
+</body>
+</html>
