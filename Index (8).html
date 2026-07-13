@@ -1,0 +1,1359 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme-color" content="#76c7f4">
+  
+  <title>Victor Studio 視藝救星 | DSE VA 專科補習 - 5** SBA 及 Portfolio 指導</title>
+
+  <meta name="description" content="Victor Studio 視藝救星專為 DSE 視藝考生而設。由 5** 導師 Victor Lui 親自教授，提供 SBA 輔導、Portfolio 作品集製作及應試技巧。立即瀏覽學生 5** 作品，助你奪取佳績！">
+
+  <meta name="keywords" content="DSE VA, 視藝補習, Victor Studio, Visual Arts DSE, SBA 輔導, Art Portfolio, 視覺藝術作品集, 香港畫室, 旺角畫室, 觀塘畫室">
+
+  <meta property="og:site_name" content="Victor Studio - 視藝救星">
+  <meta property="og:title" content="Victor Studio | DSE 視覺藝術補習專家 - 奪星 SBA 與 Portfolio 指導">
+  <meta property="og:description" content="還在為 VA SBA 煩惱？Victor Studio 助你從 Research Workbook 到 Final Artwork 完美拿分。點擊查看 2025 學生佳績！">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://vadse.com.hk/">
+  <meta property="og:locale" content="zh_HK">
+  
+  <meta property="og:image" content="https://vadse.com.hk/2026%20DSE%E9%87%9D%E5%B0%8D%E6%80%A7%E8%AA%B2%E7%A8%8Bpost-03.jpg">
+  <link rel="icon" href="victor-lui-dse-va-5star-tutor.jpg">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&amp;family=Montserrat:wght@600&amp;display=swap" rel="stylesheet">
+  
+  <style>
+    /* === 全局變數 === */
+    :root {
+      --sky: #76c7f4;
+      --green: #8cd867;
+      --sun: #ffe066;
+      --coral: #ff7e79;
+      --deepblue: #28527a;
+      --darkgreen: #4e8d6b;
+      --white: #fff;
+      --bg: linear-gradient(135deg, #eafcff 0%, #fffbe6 60%, #fdf2f2 100%);
+      --shadow: 0 4px 24px rgba(80, 130, 170, 0.09);
+      --radius: 18px;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: 'Noto Sans TC', 'Montserrat', Arial, sans-serif;
+      background: var(--bg);
+      color: #2d3559;
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+    main section, #tutor { scroll-margin-top: 92px; }
+    a:focus-visible, button:focus-visible, summary:focus-visible, .tutor-card-collapsed:focus-visible {
+      outline: 2.5px solid var(--coral);
+      outline-offset: 2px;
+    }
+
+/* === 懸浮 WhatsApp 按鈕樣式 (修正版) === */
+    .whatsapp-float {
+      position: fixed;
+      width: 60px;
+      height: 60px;
+      bottom: 30px;
+      right: 30px;
+      background-color: #25d366;
+      color: #FFF;
+      border-radius: 50%; /* 確保是完美的圓形 */
+      text-align: center;
+      font-size: 30px;
+      box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s;
+      /* 關鍵修正：防止動畫導致模糊 */
+      -webkit-font-smoothing: antialiased;
+      transform: translateZ(0); 
+      will-change: transform;
+      animation: pulse 2s infinite;
+    }
+    .whatsapp-float:hover {
+      transform: scale(1.1) translateZ(0);
+      background-color: #20b858;
+    }
+    .whatsapp-icon {
+      width: 38px; /* 稍微加大一點點，看起來更清楚 */
+      height: 38px;
+      fill: #FFF; /* 確保圖標是純白色 */
+      filter: drop-shadow(0 1px 1px rgba(0,0,0,0.1)); /* 增加一點點陰影讓邊緣更銳利 */
+    }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+      70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+    }
+
+    /* === Header & Nav === */
+    header {
+      background: linear-gradient(90deg, var(--sky) 60%, var(--sun) 100%);
+      color: var(--deepblue);
+      padding: 2.8rem 1rem 1.6rem 1rem;
+      text-align: center;
+      position: relative;
+      animation: fadeInDown 1.2s;
+    }
+    .logo {
+      width: 75px; height: 75px;
+      border-radius: 50%;
+      border: 3px solid var(--green);
+      background: #fff;
+      margin-bottom: 0.9em;
+      object-fit: cover;
+      animation: fadeIn 1.1s;
+    }
+    header h1 {
+      font-family: 'Montserrat', 'Noto Sans TC', Arial, sans-serif;
+      font-size: 2.3rem;
+      font-weight: 700;
+      color: var(--deepblue);
+      letter-spacing: 2px;
+      margin: 0 0 0.4em 0;
+      text-shadow: 1px 2px 10px #eafcff;
+      animation: fadeInLeft 1.2s;
+    }
+    @media (max-width: 700px) {
+      header h1 {
+        font-size: 1.6rem;
+        line-height: 1.3;
+      }
+    }
+    header p {
+      font-size: 1.13rem;
+      color: var(--darkgreen);
+      margin: 0 0 1em 0;
+      font-weight: 500;
+      letter-spacing: 1px;
+      animation: fadeInRight 1.3s;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      background: #fff9;
+      margin: 0 auto 2em auto;
+      gap: 2em;
+      padding: 0.8em 1em 0.7em 1em;
+      border-radius: 2em;
+      box-shadow: var(--shadow);
+      max-width: 750px;
+      font-family: 'Montserrat', 'Noto Sans TC', Arial, sans-serif;
+      animation: fadeInDown 1.3s;
+      flex-wrap: wrap;
+      position: sticky; top: 0; z-index: 99;
+    }
+    nav.sticky {
+      box-shadow: 0 2px 16px #28527a22;
+    }
+    nav a {
+      color: var(--deepblue);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.08em;
+      letter-spacing: 1px;
+      border-bottom: none;
+      transition: color 0.18s, background 0.20s, transform 0.18s;
+      padding: 0.13em 0.06em;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: #fff;
+      border: 2.5px solid transparent;
+      margin: 0 0.15em;
+      box-shadow: 0 3px 10px #4e8d6b13;
+      overflow: hidden;
+      text-align: center;
+      white-space: nowrap;
+    }
+    nav a.active, nav a:hover {
+      color: var(--coral);
+      border: 2.5px solid var(--green);
+      background: var(--sun);
+      transform: scale(0.94);
+    }
+    nav a span {
+      display: inline-block;
+      font-size: 0.97em;
+      font-weight: 700;
+      line-height: 1.1;
+      padding: 0 2px;
+      white-space: normal;
+      word-break: break-word;
+    }
+    nav a.nav-cta {
+      width: auto;
+      height: auto;
+      border-radius: 2em;
+      padding: 0.5em 1.3em;
+      background: linear-gradient(90deg, var(--coral) 0%, #ff9b8f 100%);
+      border: 2.5px solid transparent;
+      box-shadow: 0 3px 14px #ff7e7940;
+      transition: transform 0.18s, box-shadow 0.18s, background 0.18s;
+    }
+    nav a.nav-cta span {
+      color: #fff;
+      font-size: 1em;
+      white-space: nowrap;
+    }
+    nav a.nav-cta:hover, nav a.nav-cta:focus-visible {
+      transform: scale(1.05);
+      box-shadow: 0 5px 18px #ff7e7960;
+      background: linear-gradient(90deg, #ff6a63 0%, var(--coral) 100%);
+      border: 2.5px solid transparent;
+    }
+    @media (max-width: 600px) {
+      nav a:not(.nav-cta) { width: 38px; height: 38px; font-size: 0.97em; padding: 0; }
+      nav a span { font-size: 0.8em; }
+      nav a.nav-cta span { font-size: 0.85em; }
+      nav a.nav-cta { padding: 0.45em 1em; }
+      nav {gap: 1em;}
+    }
+
+    /* === Main & Layout === */
+    .poster-list {
+      display: flex;
+      gap: 1.5em;
+      justify-content: center;
+      align-items: center;
+      margin: 1.2em 0 2em 0;
+      flex-wrap: wrap;
+    }
+    .poster-list img {
+      width: 160px;
+      height: auto;
+      border-radius: 13px;
+      box-shadow: 0 2px 14px #4e8d6b1c;
+      object-fit: cover;
+      transition: transform 0.18s;
+    }
+    .poster-list img:hover {
+      transform: scale(1.06) rotate(-1deg);
+    }
+    @media (max-width: 600px) {
+      .poster-list img { width: 120px; }
+      .poster-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.3em;
+        margin-bottom: 2.5em;
+        justify-content: center;
+      }
+      .poster-list img {
+        width: 100%;
+        max-width: 350px;
+        border-radius: 14px;
+        box-shadow: 0 4px 18px #0002;
+        background: #fff;
+      }
+    }
+    main {
+      max-width: 1050px;
+      margin: 0 auto 2.5em auto;
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 2.2rem 2.1rem 2rem 2.1rem;
+      animation: fadeInUp 1.2s;
+    }
+    section {
+      margin-bottom: 2.5rem;
+      opacity: 0;
+      transform: translateY(40px);
+      animation: fadeSection 1s forwards;
+    }
+    section:nth-of-type(1) {animation-delay: .1s;}
+    section:nth-of-type(2) {animation-delay: .3s;}
+    h2 {
+      color: var(--deepblue);
+      font-size: 1.35rem;
+      letter-spacing: 0.6px;
+      border-left: 7px solid var(--green);
+      padding-left: 0.5em;
+      background: linear-gradient(90deg, var(--sun) 0%, #fff 80%);
+      display: inline-block;
+      border-radius: 0 7px 7px 0;
+      margin-top: 0; margin-bottom: 0.9em;
+      animation: fadeInLeft 1.2s;
+    }
+
+    /* === Tutor Cards === */
+    .tutor-panel {
+      display: flex;
+      gap: 1.6em;
+      background: linear-gradient(120deg, #eafcff 0%, #fdf2f2 100%);
+      border-radius: var(--radius);
+      box-shadow: 0 2px 16px #76c7f430;
+      padding: 2em 1.7em;
+      margin-bottom: 2em;
+      align-items: flex-start;
+      opacity: 0;
+      transform: translateY(40px);
+      animation: slideUpCard 1.2s .4s forwards;
+    }
+    .tutor-pic {
+      flex: 0 0 170px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+    }
+    .tutor-pic img {
+      width: 150px; height: 150px;
+      border-radius: 22px;
+      object-fit: cover;
+      border: 3px solid var(--green);
+      margin-bottom: 0.6em;
+      background: #fff;
+      box-shadow: 0 1px 10px #4e8d6b22;
+      animation: fadeIn 1.4s;
+    }
+    .tutor-badge {
+      background: linear-gradient(90deg, var(--green) 50%, #fff 100%);
+      color: var(--deepblue);
+      padding: 0.22em 1em 0.18em 1em;
+      border-radius: 2em;
+      font-size: 1em;
+      letter-spacing: 1px;
+      margin-bottom: 0.3em;
+      font-family: 'Montserrat', 'Noto Sans TC', Arial, sans-serif;
+      font-weight: 700;
+      animation: fadeIn 1.7s;
+    }
+    .tutor-main { flex: 1; color: var(--deepblue); }
+    .tutor-main h3 {
+      margin: 0 0 0.3em 0;
+      color: var(--coral);
+      font-size: 1.12em;
+      font-weight: 700;
+      font-family: 'Montserrat', 'Noto Sans TC', Arial, sans-serif;
+      letter-spacing: 1px;
+      animation: fadeInLeft 1.5s;
+    }
+    .tutor-main ul, .tutor-main ol {margin:0.2em 0 0.7em 1.1em;}
+    .tutor-main li {margin-bottom:0.3em;}
+    .tutor-note {
+      background: #fffbe6;
+      color: var(--darkgreen);
+      border-radius: 8px;
+      padding: 0.55em 1em;
+      font-size: 0.98em;
+      margin-top: 0.7em;
+      animation: fadeIn 1.7s;
+    }
+    .star-list li {margin-bottom:0.5em;position:relative;animation: fadeInUp 0.9s;}
+    .star-list li:before {
+      content: "🌟";
+      color: var(--coral);
+      margin-right:0.5em;
+      font-size:1.1em;
+      position:absolute;left:-1.1em;top:0;
+    }
+    .dot-list {margin:0.6em 0 0.1em 1em;}
+    .dot-list li {margin-bottom:0.4em;}
+    .highlight-badge {
+      display: inline-block;
+      margin: 1em 0 0.4em 0;
+      color: var(--deepblue);
+      font-weight: 700;
+      background: linear-gradient(90deg, var(--sun) 0%, #fff 100%);
+      border: 1.5px solid var(--coral);
+      border-radius: 2em;
+      padding: 0.5em 1.3em;
+      box-shadow: 0 2px 10px #ff7e7930;
+      animation: fadeIn 1.4s;
+    }
+
+    /* === Collapsible Detail Panels (bio / school list) === */
+    .info-details {
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.1em 1.4em;
+      margin-top: 1.2em;
+    }
+    .info-details + .info-details { margin-top: 0.9em; }
+    .info-details summary {
+      cursor: pointer;
+      font-weight: 700;
+      color: var(--deepblue);
+      font-size: 1.02em;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
+    }
+    .info-details summary::-webkit-details-marker { display: none; }
+    .info-details summary:before {
+      content: "▶";
+      color: var(--coral);
+      font-size: 0.75em;
+      transition: transform 0.2s;
+      display: inline-block;
+    }
+    .info-details[open] summary:before { transform: rotate(90deg); }
+    .info-details summary:hover { color: var(--coral); }
+    .info-details { transition: box-shadow 0.22s; }
+    .info-details:hover { box-shadow: 0 6px 22px #76c7f440; }
+    .info-details .detail-body { margin-top: 1em; }
+    .info-details h4 {
+      color: var(--coral);
+      margin: 1.1em 0 0.3em 0;
+      font-size: 1em;
+      letter-spacing: 0.3px;
+    }
+    .info-details h4:first-child { margin-top: 0; }
+
+    .school-table-wrap { overflow-x: auto; margin-top: 0.6em; border-radius: 12px; }
+    .school-table { width: 100%; border-collapse: collapse; font-size: 0.92em; min-width: 480px; }
+    .school-table th {
+      background: var(--green);
+      color: #fff;
+      padding: 0.55em 0.7em;
+      text-align: left;
+      white-space: nowrap;
+    }
+    .school-table td {
+      padding: 0.5em 0.7em;
+      border-bottom: 1px solid #eafcff;
+      color: #2d3559;
+    }
+    .school-table tr:nth-child(even) td { background: #fffbe6; }
+    .school-table td:first-child { white-space: nowrap; color: var(--darkgreen); font-weight: 600; }
+
+    /* === Locations === */
+    .locations-flex {
+      display: flex;
+      gap: 2em;
+      flex-wrap: wrap;
+    }
+    .loc-card {
+      background: linear-gradient(135deg, #eafcff 0%, #ffe066 100%);
+      border-radius: 12px;
+      box-shadow: 0 1px 8px #76c7f430;
+      padding: 1.2em 1.2em 1.2em 1.2em;
+      flex: 1 1 300px;
+      min-width: 220px;
+      max-width: 400px;
+      margin-bottom: 0.7em;
+      color: var(--deepblue);
+      opacity: 0;
+      transform: translateY(40px);
+      animation: slideUpCard 1s 1s forwards;
+      transition: box-shadow 0.22s, transform 0.22s;
+    }
+    .loc-card:hover { box-shadow: 0 6px 22px #76c7f450; transform: translateY(-3px); }
+
+    /* Contact CTA */
+    .contact-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5em;
+      margin-top: 0.4em;
+      background: linear-gradient(90deg, var(--green) 0%, var(--darkgreen) 100%);
+      color: #fff;
+      font-weight: 700;
+      font-size: 1.15em;
+      letter-spacing: 0.5px;
+      padding: 0.65em 1.5em;
+      border-radius: 2em;
+      text-decoration: none;
+      box-shadow: 0 4px 16px #4e8d6b40;
+      transition: transform 0.18s, box-shadow 0.18s, background 0.18s;
+    }
+    .contact-cta:hover, .contact-cta:focus-visible {
+      transform: translateY(-2px) scale(1.03);
+      box-shadow: 0 6px 20px #4e8d6b55;
+      background: linear-gradient(90deg, var(--darkgreen) 0%, var(--green) 100%);
+    }
+
+    /* === Articles & Photos === */
+    #articles {
+      margin-bottom: 2.5rem;
+      background: #f9f9fc;
+      border-radius: 16px;
+      box-shadow: 0 2px 16px #b1c8ec22;
+      padding: 2em 1.5em 1em 1.5em;
+    }
+    #articles h2 { text-align: center; margin-bottom: 1.3em; }
+    .article-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5em;
+      justify-content: center;
+    }
+    .article-list article {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px #8cd86711;
+      padding: 1.2em 1.1em;
+      max-width: 350px;
+      flex: 1 1 250px;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.22s, transform 0.22s;
+    }
+    .article-list article:hover { box-shadow: 0 6px 20px #8cd86733; transform: translateY(-3px); }
+    .article-list h3 { font-size: 1.1em; color: #28527a; margin-bottom: 0.5em; }
+    .article-list p { flex: 1 1 auto; font-size: 0.98em; color: #666; }
+    .read-more-link {
+      margin-top: 0.8em;
+      color: #fff;
+      background: #8cd867;
+      border-radius: 6px;
+      padding: 0.5em 1em;
+      text-decoration: none;
+      align-self: flex-start;
+      font-size: 0.98em;
+      font-weight: 600;
+      transition: background 0.18s, transform 0.18s;
+    }
+    .read-more-link:hover { background: #28527a; transform: translateY(-2px); }
+    
+    /* Photo Gallery */
+    #photos {
+      margin: 2.5em 0;
+      padding: 2em 1.2em 1em 1.2em;
+      background: #f9f9fc;
+      border-radius: 16px;
+      box-shadow: 0 2px 16px #b1c8ec22;
+    }
+    .poster-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.1em;
+      margin-bottom: 1.8em;
+      justify-content: flex-start;
+    }
+    .poster-group img {
+      width: 170px;
+      max-width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 2px 14px #4e8d6b1c;
+      object-fit: cover;
+      transition: transform 0.18s;
+      background: #fff;
+    }
+    .poster-group img:hover { transform: scale(1.05) rotate(-1deg); }
+
+    /* === Grid for Collapsed Cards === */
+    .tutor-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(265px, 1fr));
+      gap: 1.5em;
+      margin-top: 2em;
+      margin-bottom: 2em;
+    }
+    .tutor-card-collapsed {
+      background: linear-gradient(120deg, #eafcff 0%, #fdf2f2 100%);
+      border-radius: 18px;
+      box-shadow: 0 2px 16px #76c7f430;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      padding: 1em 0.9em 1em 0.9em;
+      color: var(--deepblue);
+      cursor: pointer;
+      outline: none;
+      transition: box-shadow 0.17s, border 0.17s;
+      border: 2px solid transparent;
+      position: relative;
+    }
+    .tutor-card-collapsed:focus, .tutor-card-collapsed:hover {
+      box-shadow: 0 4px 20px #ff7e7930;
+      border: 2px solid var(--green);
+    }
+    .tutor-card-header {
+      display: flex;
+      align-items: center;
+      gap: 1em;
+      min-height: 74px;
+    }
+    .tutor-card-header img {
+      width: 64px; height: 64px;
+      border-radius: 13px;
+      object-fit: cover;
+      border: 2.5px solid var(--green);
+      background: #fff;
+      box-shadow: 0 1px 10px #4e8d6b22;
+      flex-shrink: 0;
+    }
+    .tutor-title {
+      font-size: 0.99em; color: var(--coral); font-weight: bold;
+      margin-bottom: 0.13em; margin-top: 0.08em; line-height: 1.2;
+    }
+    .tutor-school { font-size: 0.93em; color: #28527a; font-weight: normal; }
+    .expand-arrow {
+      margin-left: auto; font-size: 1.3em; color: var(--deepblue);
+      transition: transform 0.24s; user-select: none;
+    }
+    .tutor-card-collapsed.active .expand-arrow { transform: rotate(180deg); }
+    .tutor-card-expand {
+      max-height: 0; overflow: hidden; opacity: 0;
+      transition: max-height 0.35s cubic-bezier(0.4,0,0.2,1), opacity 0.33s;
+      will-change: max-height, opacity;
+      padding-left: 0.17em; padding-right: 0.17em;
+    }
+    .tutor-card-collapsed.active .tutor-card-expand {
+      opacity: 1; max-height: 650px; margin-top: 0.7em;
+    }
+    .showcase-btn {
+      display: inline-block;
+      margin-top: 0.8em;
+      background: var(--green);
+      color: #fff;
+      padding: 0.4em 1em;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 0.9em;
+      font-weight: bold;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .showcase-btn:hover { background: var(--deepblue); transform: translateY(-2px); }
+
+    /* === Responsive Fixes === */
+    @media (max-width: 900px) {
+      main { padding: 1em 0.4em 1em 0.4em; }
+      .tutor-panel { flex-direction: column; align-items: stretch; }
+      .tutor-pic { align-items: flex-start; }
+      .locations-flex { flex-direction: column; gap:1em;}
+      .poster-list { flex-direction: column; align-items: center; }
+      .poster-list img { max-width: 98vw; width: 98vw; min-width: 0; }
+    }
+    @media (max-width: 700px) {
+      .article-list { flex-direction: column; gap: 1em; }
+      .poster-group { gap: 0.8em; justify-content: center; }
+      .poster-group img { width: 90vw; max-width: 320px; margin: 0 auto; border-radius: 11px; }
+      #photos { padding: 1.2em 0.2em; }
+      #photos h2 { font-size: 1em; padding-left: 0.4em; }
+      .tutor-grid { grid-template-columns: 1fr; gap: 1em; }
+      .tutor-card-header img { width: 50px; height: 50px; border-radius: 10px; }
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 1.2em 0 4em 0; /* 增加底部 padding 給 WhatsApp Button */
+      color: var(--deepblue);
+      font-size: 1em;
+      background: linear-gradient(90deg, var(--sky) 0%, var(--sun) 100%);
+      border-top: 2px solid var(--green);
+      margin-top: 2em;
+      letter-spacing: 1px;
+      border-radius: 0 0 18px 18px;
+      animation: fadeInUp 1.2s 1.1s;
+    }
+    .footer-social a {
+      color: var(--coral); margin: 0 0.4em; font-size: 1.15em;
+      vertical-align: middle; transition: color 0.16s;
+    }
+    .footer-social a:hover { color: var(--deepblue);}
+
+    /* Animations */
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(40px);} to { opacity: 1; transform: none;} }
+    @keyframes fadeInDown { from { opacity: 0; transform: translateY(-30px);} to { opacity: 1; transform: none;} }
+    @keyframes fadeInLeft { from { opacity: 0; transform: translateX(-40px);} to { opacity: 1; transform: none;} }
+    @keyframes fadeInRight { from { opacity: 0; transform: translateX(40px);} to { opacity: 1; transform: none;} }
+    @keyframes slideUpCard { from { opacity: 0; transform: translateY(60px);} to { opacity: 1; transform: none;} }
+    @keyframes fadeSection { to { opacity: 1; transform: none;} }
+  </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "EducationalOrganization",
+  "name": "Victor Studio 視藝救星",
+  "image": "https://vadse.com.hk/INSTRUCTOR%201.JPG",
+  "@id": "https://vadse.com.hk",
+  "url": "https://vadse.com.hk",
+  "telephone": "+85292632618",
+  "priceRange": "$$",
+  "address": [
+    {
+      "@type": "PostalAddress",
+      "streetAddress": "九龍旺角缽蘭街 280 商業大廈 14 樓 01 室",
+      "addressLocality": "Mong Kok",
+      "addressRegion": "Kowloon",
+      "addressCountry": "HK"
+    },
+    {
+      "@type": "PostalAddress",
+      "streetAddress": "觀塘怡生工業中心 H 座 11 樓 23 & 28 室",
+      "addressLocality": "Kwun Tong",
+      "addressRegion": "Kowloon",
+      "addressCountry": "HK"
+    }
+  ],
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 22.3193, 
+    "longitude": 114.1694
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday"
+    ],
+    "opens": "12:00",
+    "closes": "22:30"
+  },
+  "sameAs": [
+    "https://www.instagram.com/va_dse_victor/"
+  ]
+}
+ </script>
+</head>
+<body>
+
+  <a href="https://wa.me/85292632618" class="whatsapp-float" target="_blank" aria-label="WhatsApp 聯絡我們">
+  <svg class="whatsapp-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+    <path fill="currentColor" d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3 18.7-68.1-4.4-6.9c-18.3-28.8-28-62.3-28-95.9 0-98.7 79.8-178.7 178.4-178.7 47.6 0 92.5 18.5 126.3 52.3 33.8 33.8 52.3 78.4 52.3 126.2 0 98.7-80.2 178.7-178.5 178.7zm98.2-125c-5.4-2.7-31.9-15.8-36.9-17.6-5-1.8-8.6-2.7-12.2 2.7-3.6 5.4-14.2 17.6-17.4 21.3-3.2 3.7-6.4 4.1-11.7 1.4-5.4-2.7-22.6-8.3-43.1-26.6-16-14.3-26.9-32-30-37.4-3.2-5.4-.3-8.3 2.3-11 2.4-2.4 5.4-6.4 8.1-9.6 2.7-3.2 3.6-5.4 5.4-9 1.8-3.6.9-6.7-.5-9.4-1.4-2.7-12.2-29.3-16.8-40.1-4.5-10.6-9.1-9.1-12.2-9.1-3.1 0-6.4 0-9.8 0-3.4 0-9 1.3-13.7 6.4-4.7 5.1-18 17.6-18 43s18.4 49.9 21 53.4c2.5 3.5 36.2 55.3 87.7 77.5 12.2 5.3 21.7 8.5 29.1 10.9 12.3 4 23.5 3.4 32.4 2.1 9.8-1.4 31.9-13 36.4-25.5 4.5-12.5 4.5-23.2 3.2-25.5-1.4-2.3-5-3.6-10.4-6.3z"/>
+  </svg>
+</a>
+
+ <header>
+    <img src="victor-studio-dse-va-logo.jpeg" class="logo" alt="視覺藝術補習社 Victor Studio Logo">
+    <h1>Victor Studio<br>視藝救星</h1>
+    <p>DSE VA 5** 導師親授</p>
+  </header>
+
+  <nav>
+    <a href="#about" class="active"><span>課程特色</span></a>
+    <a href="#tutor"><span>導師介紹</span></a>
+    <a href="#course-detail"><span>課程內容</span></a>
+    <a href="#locations"><span>上課地點</span></a><br>
+    <a href="https://www.instagram.com/va_dse_victor/" target="_blank" rel="noopener" class="nav-cta"><span>新生申請 →</span></a>
+  </nav>
+
+  <main>
+    <section id="about">
+      <h2>🎨 課程特色</h2>
+      <ul class="star-list">
+        <li>由 <b>DSE VA 5** 導師</b>親自指導（8年經驗，2017-2024年培育多位 5-5** 學生）</li>
+        <li>針對性教學，協助學生突破難題，完成 SBA 及 Portfolio，提供專業道具及技術支援</li>
+        <li>多位 5-5** 畢業生實例參考，助你立志高分</li>
+        <li>卷一卷二班、SBA 班，<b>所有技巧及評賞均由 DSE VA 5** 過來人指導</b></li>
+        <li>與 30 多間中學及機構合作，連續兩年學生入選葛量洪視藝獎、成功考入 UAL 藝術及設計科</li>
+      </ul>
+      <div class="highlight-badge">
+        🏆 2025 年 DSE VA 3 位學生榮獲 5** 和 8 位學生 5*
+      </div>
+    </section>
+
+    <div class="poster-list">
+      <img src="2026 DSE針對性課程post-03.jpg" alt="Victor Studio DSE Visual Arts 針對性課程海報" loading="lazy">
+      <img src="2026 DSE針對性課程post-04.jpg" alt="Victor Studio DSE 視藝補習課程海報" loading="lazy">
+      <img src="2026 VA常規課程-06.jpg" alt="Victor Studio 視藝常規課程海報" loading="lazy">
+      <img src="2026 到校教授post-01.jpg" alt="Victor Studio 視覺藝術到校服務海報" loading="lazy">
+      <img src="2026_繪畫卷步驟篇-01.jpg" alt="DSE 繪畫卷步驟教學海報" loading="lazy">
+    </div>
+
+    <section id="photos">
+      <h2>課室環境</h2>
+      <div class="poster-group">
+        <img src="IMG_9209.jpg" alt="旺角觀塘 Victor Studio 畫室環境" loading="lazy">
+      </div>
+      <h2>到校教學</h2>
+      <div class="poster-group">
+        <img src="dse-va-school-workshop.jpg" alt="DSE 視藝到校教學工作坊" loading="lazy">
+        <img src="dse-va-in-school-tutorial.jpg" alt="DSE 視覺藝術中學補習課程" loading="lazy">
+      </div>
+      <h2>教學相片</h2>
+      <div class="poster-group">
+        <img src="IMG_9638.jpg" alt="DSE 學生上課繪畫作品" loading="lazy">
+        <img src="art-tutor-demonstration.jpeg" alt="視藝導師現場繪畫示範" loading="lazy">
+      </div>
+    </section>
+
+    <section id="tutor">
+      <h2>導師介紹</h2>
+      <div class="tutor-panel">
+        <div class="tutor-pic">
+          <img src="victor-lui-dse-va-5star-tutor.jpg" alt="DSE 視藝 5** 導師 Victor Lui">
+          <div class="tutor-badge">視藝救星創辦人 Victor Lui</div>
+        </div>
+        <div class="tutor-main">
+          <ul class="star-list">
+            <h3>現職視覺藝術科導師｜5** DSE</h3>
+            <li>2015-2017 年於梁文燕紀念中學（沙田）視覺藝術學科榮獲全級第一名</li>
+            <li>2017 年 DSE 視藝 5**，SBA 分獲 99/100</li>
+            <li>畢業於香港設計學院，修畢服裝設計文憑</li>
+            <li>2017-2019 年修讀香港知專設計學院 (HKDI) 展覽設計培訓，涉獵空間設計、展覽佈局及結構美學等核心課程</li>
+            <li>2018 年起投入 DSE 及 IBVA 視覺藝術科教育，曾任 Life art Studio 及英倫博士教育藝術導師</li>
+            <li>2018-2026 年多名學員 DSE VA 獲 5* 或以上，屢獲九龍倉全港中學生繪畫比賽、葛量洪視覺藝術獎等殊榮</li>
+            <li>協助學生考入港大/中大/理大/UAL 等頂尖學府</li>
+            <li>8 年教學經驗，曾到訪多間中學教授 DSE VA 技巧（如東華三院黃笏南、聖若瑟、聖保祿學校等）</li>
+          </ul>
+          <div class="tutor-note">
+            年輕有為，具備專業教學及升學理念，真正明白年輕學員的需要，助你全面發展、自信升學！
+          </div>
+
+          <details class="info-details">
+            <summary>查看 Victor 完整教學及藝術工作經歷</summary>
+            <div class="detail-body">
+              <h4>教學與教導成就</h4>
+              <ul class="dot-list">
+                <li>秉持「有教無類」的教育理念，學生涵蓋 Band 1 至 Band 3 學校以及特殊教育需要 (SEN) 學生</li>
+                <li>2018 至 2026 年期間，多名學員於 DSE VA 順利考獲 5* 或 5 的佳績，學生屢獲殊榮，包括九龍倉全港中學生繪畫比賽、葛量洪視覺藝術獎及金禧誌慶等獎項</li>
+                <li>成功協助及孕育多位學生考入香港大學 (HKU)、香港中文大學 (CUHK)、香港理工大學 (PolyU)、倫敦藝術大學 (UAL) 等頂尖學府</li>
+                <li>啟發及推動不少畢業生轉型成為藝術導師，建立人才傳承，延續教學知識</li>
+                <li>2022-2023 年度正式在 Victor Studio 開辦 DSE 或 IBVA 及升學相關藝術大學的課程</li>
+              </ul>
+              <h4>媒體與社會影響力</h4>
+              <ul class="dot-list">
+                <li>自 2022 年起於網絡社交平台活躍至今，每月平均獲得 10-80 萬人次觀看，主要為學生免費提供及分享藝術資訊和知識</li>
+                <li>自 2021 年起與香港關懷力量合作至今，主力幫助貧困學生及參與義教活動</li>
+                <li>年青時踴躍積極參與本地及海外藝術比賽，曾獲多項國際及本地獎項；曾獲邀到香港電台進行時裝比賽節目專訪</li>
+              </ul>
+              <h4>藝術總監與業界經驗</h4>
+              <ul class="dot-list">
+                <li>隨香港藝術家麥天傑及中國水墨畫家韋勁敏習畫至今</li>
+                <li>2018 年開始積極投入於 DSE 及 IBVA 的視覺藝術科教育，並成為 Life art Studio 的藝術導師，主要負責視藝科學生</li>
+                <li>2021 年擔任英倫博士教育藝術教育老師</li>
+                <li>2017 年及 2019 至 2021 年分別擔任 KingsEntertainment 的平面及數位廣告美術總監</li>
+              </ul>
+            </div>
+          </details>
+
+          <details class="info-details">
+            <summary>查看到校課程合作學校名單（2025-2026）</summary>
+            <div class="detail-body">
+              <h4>2025 年度</h4>
+              <div class="school-table-wrap">
+                <table class="school-table">
+                  <thead><tr><th>合作學校</th><th>課程 / 工作坊名稱</th></tr></thead>
+                  <tbody>
+                    <tr><td>聖若瑟書院</td><td>高中視藝工具坊</td></tr>
+                    <tr><td>聖公會聖馬利亞堂莫慶堯中學</td><td>西洋藝術繪畫課程</td></tr>
+                    <tr><td>東華三院呂潤財紀念中學</td><td>中六視藝訓練班</td></tr>
+                    <tr><td>正覺中學</td><td>立體及混合媒介藝術課程</td></tr>
+                    <tr><td>正覺中學</td><td>暑期進深藝術繪畫課程</td></tr>
+                    <tr><td>聖保羅書院</td><td>視覺藝術指導班</td></tr>
+                    <tr><td>蕭明中學</td><td>課外興趣繪畫班</td></tr>
+                    <tr><td>圓玄學院妙法寺內明陳呂重德紀念中學</td><td>視藝訓練班</td></tr>
+                    <tr><td>香港管理專業協會羅桂祥中學</td><td>考試技巧班</td></tr>
+                    <tr><td>蕭明中學</td><td>繪畫及設計班</td></tr>
+                    <tr><td>天主教伍華中學</td><td>中五平創寫生班</td></tr>
+                    <tr><td>梁文燕紀念中學(沙田)</td><td>文憑應試策略課程</td></tr>
+                    <tr><td>天主教伍華中學</td><td>中四插畫班</td></tr>
+                    <tr><td>梁文燕紀念中學(沙田)</td><td>視覺藝術構圖及繪畫技巧拔尖班</td></tr>
+                    <tr><td>庇理羅士女子中學</td><td>考試技巧班</td></tr>
+                    <tr><td>天主教伍華中學</td><td>立體藝術創作班</td></tr>
+                    <tr><td>聖公會聖馬利亞堂莫慶堯中學</td><td>DSE Mock Exam Paper 1 &amp; 2</td></tr>
+                    <tr><td>東華三院吳祥川紀念中學</td><td>中五工作坊</td></tr>
+                    <tr><td>東華三院吳祥川紀念中學</td><td>中四工作坊</td></tr>
+                    <tr><td>圓玄學院妙法寺內明陳呂重德紀念中學</td><td>視藝訓練班 2</td></tr>
+                    <tr><td>保良局何蔭棠中學</td><td>藝術創作班</td></tr>
+                    <tr><td>蕭明中學</td><td>繪畫技巧基礎班</td></tr>
+                    <tr><td>正覺中學</td><td>立體及混合媒介課程</td></tr>
+                    <tr><td>正覺中學</td><td>西洋藝術繪畫課程</td></tr>
+                    <tr><td>聖保羅書院</td><td>顏料探索工作坊</td></tr>
+                    <tr><td>蕭明中學</td><td>進階班校外導師</td></tr>
+                    <tr><td>東華三院呂潤財紀念中學</td><td>中五考試技巧班</td></tr>
+                    <tr><td>東華三院呂潤財紀念中學</td><td>中六考試技巧班</td></tr>
+                    <tr><td>樂善堂王仲銘中學</td><td>高中藝術創作及研究簿製作</td></tr>
+                    <tr><td>惠僑英文中學</td><td>中六設計班</td></tr>
+                    <tr><td>惠僑英文中學</td><td>中六作品集班</td></tr>
+                    <tr><td>聖公會何明華會督中學</td><td>中六考試操練班</td></tr>
+                    <tr><td>聖公會何明華會督中學</td><td>恆常班</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <h4>2026 年度</h4>
+              <div class="school-table-wrap">
+                <table class="school-table">
+                  <thead><tr><th>合作學校</th><th>課程 / 工作坊名稱</th></tr></thead>
+                  <tbody>
+                    <tr><td>保良局何蔭棠中學</td><td>中六工作坊</td></tr>
+                    <tr><td>天主教伍華中學</td><td>中六油畫</td></tr>
+                    <tr><td>天主教伍華中學</td><td>塑膠彩繪畫班</td></tr>
+                    <tr><td>天主教伍華中學</td><td>插畫班</td></tr>
+                    <tr><td>天主教伍華中學</td><td>立體工作坊</td></tr>
+                    <tr><td>天主教伍華中學</td><td>暑假補課</td></tr>
+                    <tr><td>可立中學</td><td>中六工作坊</td></tr>
+                    <tr><td>創知中學</td><td>中四工作坊</td></tr>
+                    <tr><td>東涌天主教學校</td><td>酒精 Maker 創作班</td></tr>
+                    <tr><td>梁文燕紀念中學(沙田)</td><td>中五工作坊</td></tr>
+                    <tr><td>梁文燕紀念中學(沙田)</td><td>中六繪畫技巧</td></tr>
+                    <tr><td>蕭明中學</td><td>中六操卷</td></tr>
+                    <tr><td>樂善堂王仲銘中學</td><td>中五工作坊</td></tr>
+                    <tr><td>保良局董玉娣中學</td><td>中四五工作坊</td></tr>
+                    <tr><td>藍田聖保祿中學</td><td>60 週年藝術工作坊</td></tr>
+                    <tr><td>中華基督教會方潤華中學</td><td>中五工作坊</td></tr>
+                    <tr><td>真光女書院</td><td>繪畫班</td></tr>
+                    <tr><td>東華三院吳祥川紀念中學</td><td>中四工作坊</td></tr>
+                    <tr><td>東華三院吳祥川紀念中學</td><td>中五工作坊</td></tr>
+                    <tr><td>保良局何蔭棠中學</td><td>中六工作坊</td></tr>
+                    <tr><td>陳呂重德中學</td><td>中五工作坊</td></tr>
+                    <tr><td>陳呂重德中學</td><td>中六工作坊</td></tr>
+                    <tr><td>創知中學</td><td>工作坊</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <div class="tutor-grid">
+        <div class="tutor-card-collapsed" tabindex="0">
+          <div class="tutor-card-header">
+            <img src="hailey-polyu-design-tutor.jpeg" alt="理工大學設計導師 Hailey">
+            <div>
+              <div class="tutor-badge">Hailey</div>
+              <div class="tutor-title">設計導師<br><span class="tutor-school">香港理工大學</span></div>
+            </div>
+            <span class="expand-arrow">▼</span>
+          </div>
+          <div class="tutor-card-expand">
+            <ul class="star-list">
+              <li>曾修讀香港浸會大學視覺藝術</li>
+              <li>獲 ADIA Design Color Award** 等設計獎項</li>
+              <li>參與家具設計研發、於知名室內及建築設計所工作</li>
+              <li>2020 年於 Victor 指導下 DSE VA 考獲 5*</li>
+              <li>負責平面設計及品牌宣傳、內容策劃、視覺設計及推廣</li>
+            </ul>
+            <a class="showcase-btn" href="showcase-hailey.html" target="_blank" rel="noopener">老師作品集</a>
+          </div>      
+        </div>
+
+        <div class="tutor-card-collapsed" tabindex="0">
+          <div class="tutor-card-header">
+            <img src="heiman-ual-portfolio-expert.jpg" alt="倫敦藝術大學作品集專家 Heiman">
+            <div>
+              <div class="tutor-badge">Heiman</div>
+              <div class="tutor-title">作品集導師<br><span class="tutor-school">倫敦藝術大學 (UAL)</span></div>
+            </div>
+            <span class="expand-arrow">▼</span>
+          </div>
+          <div class="tutor-card-expand">
+            <ul class="star-list">
+              <li>獲九龍倉全港中學生繪畫比賽等多項全港電繪獎項</li>
+              <li>DSE VA 考獲 5*，作品集近滿分</li>
+              <li>專注 DSE 技巧及海外升學經驗分享</li>
+            </ul>
+            <a class="showcase-btn" href="showcase-Heimen.html" target="_blank" rel="noopener">老師作品集</a>
+          </div>              
+        </div>
+
+        <div class="tutor-card-collapsed" tabindex="0">
+          <div class="tutor-card-header">
+            <img src="yanny-uk-art-consultant.jpg" alt="英國藝術升學顧問 Yanny">
+            <div>
+              <div class="tutor-badge">Yan</div>
+              <div class="tutor-title">海外升學顧問<br><span class="tutor-school">Nottingham Trent University</span></div>
+            </div>
+            <span class="expand-arrow">▼</span>
+          </div>
+          <div class="tutor-card-expand">
+            <ul class="star-list">
+              <li>多年海外升學及一對一教學經驗</li>
+              <li>深入英國大學入學流程，傳授獨家升學攻略與面試技巧</li>
+              <li>協助準備作品集，提升多元藝術媒介表現（水彩、塑膠彩、電繪等）</li>
+            </ul>
+            <a class="showcase-btn" href="showcase-Yanny.html" target="_blank" rel="noopener">老師作品集</a>
+          </div>              
+        </div>
+
+        <div class="tutor-card-collapsed" tabindex="0">
+          <div class="tutor-card-header">
+            <img src="ariel-illustration-art-tutor.jpeg" alt="插畫藝術導師 Ariel">
+            <div>
+              <div class="tutor-badge">Ariel</div>
+              <div class="tutor-title">插畫‧藝術導師</div>
+            </div>
+            <span class="expand-arrow">▼</span>
+          </div>
+          <div class="tutor-card-expand">
+            <ul class="star-list">
+              <li>曾獲校內視藝科第一名，校內封面設計比賽冠軍</li>
+              <li>2024 年為兒童小說進行插畫創作（已出版）</li>
+              <li>耐心教導初中生手工及多媒介創作</li>
+            </ul>
+            <a class="showcase-btn" href="showcase-Ariel.html" target="_blank" rel="noopener">老師作品集</a>
+          </div>        
+        </div>
+
+        <div class="tutor-card-collapsed" tabindex="0">
+          <div class="tutor-card-header">
+            <img src="carrie-dse-va-5star-tutor.jpeg" alt="DSE VA 5* 導師 Carrie">
+            <div>
+              <div class="tutor-badge">Carrie</div>
+              <div class="tutor-title">美術導師<br><span class="tutor-school">香港大學</span></div>
+            </div>
+            <span class="expand-arrow">▼</span>
+          </div>
+          <div class="tutor-card-expand">
+            <ul class="star-list">
+              <li>於 Victor 指導下 DSE VA 考獲 5*，SBA 近滿分</li>
+              <li>專注平面設計與立體作品，風格夢幻具敘事性</li>
+              <li>累積豐富作品指導及考卷分析經驗</li>
+            </ul>
+            <a class="showcase-btn" href="showcase-Carrie.html" target="_blank" rel="noopener">老師作品集</a>
+          </div>      
+        </div>
+          
+        <div class="tutor-card-collapsed" tabindex="0">
+          <div class="tutor-card-header">
+            <img src="selina-cuhk-art-tutor.jpeg" alt="中大藝術系 5** 導師 Selina">
+            <div>
+              <div class="tutor-badge">Selina</div>
+              <div class="tutor-title">繪畫卷・SBA 專家<br><span class="tutor-school">香港中文大學</span></div>
+            </div>
+            <span class="expand-arrow">▼</span>
+          </div>
+          <div class="tutor-card-expand">
+            <ul class="star-list">
+              <li>現就讀於香港中文大學藝術系</li>
+              <li>DSE 視藝 5**，SBA 近滿分</li>
+              <li>香港藝術菁英繪畫大賽、都會國際青年藝術節全港繪畫大賽冠軍</li>
+              <li>主授繪畫卷及 SBA 創作，精通多種媒介</li>
+            </ul>
+            <a class="showcase-btn" href="showcase-Selina.html" target="_blank" rel="noopener">老師作品集</a>
+          </div>
+        </div>
+
+        <div class="tutor-card-collapsed" tabindex="0">
+          <div class="tutor-card-header">
+            <img src="alison-dse-va-5star-student.jpeg" alt="DSE VA 5** 學生 Alison">
+            <div>
+              <div class="tutor-badge">Alison</div>
+              <div class="tutor-title">視覺藝術導師</div>
+            </div>
+            <span class="expand-arrow">▼</span>
+          </div>
+          <div class="tutor-card-expand">
+            <ul class="star-list">
+              <li>經 Victor 指導後，DSE 取得 <b>5**</b>，作品集接近滿分</li>
+              <li>深知同學們的困難與樽頸，樂於協助學生 DSE 追求卓越</li>
+              <li>曾於多間畫室教授不同程度學生，擁有豐富教學經驗</li>
+            </ul>
+            <a class="showcase-btn" href="showcase-Alison.html" target="_blank" rel="noopener">老師作品集</a>
+          </div>
+        </div>
+
+        <div class="tutor-card-collapsed" tabindex="0">
+          <div class="tutor-card-header">
+            <img src="annette-polyu-fashion-design.jpeg" alt="理工大學時裝設計導師 Annette">
+            <div>
+              <div class="tutor-badge">Annette</div>
+              <div class="tutor-title">時裝設計導師<br><span class="tutor-school">香港理工大學</span></div>
+            </div>
+            <span class="expand-arrow">▼</span>
+          </div>
+          <div class="tutor-card-expand">
+            <ul class="star-list">
+              <li>現就讀於香港理工大學時裝設計學系</li>
+              <li>SBA 90 分以上，擅長英語評賞及解題</li>
+              <li>擁有專業的時裝設計知識及縫紉經驗</li>
+              <li>主授時裝設計卷、繪畫卷、立體模型及 SBA 創作</li>
+            </ul>
+            <a class="showcase-btn" href="showcase-Annette.html" target="_blank" rel="noopener">老師作品集</a>
+          </div>
+        </div>           
+
+        <div class="tutor-card-collapsed" tabindex="0">
+          <div class="tutor-card-header">
+            <img src="helen-grantham-art-award.jpg" alt="葛量洪視覺藝術獎得主 Helen">
+            <div>
+              <div class="tutor-badge">Helen</div>
+              <div class="tutor-title">視覺藝術導師</div>
+            </div>
+            <span class="expand-arrow">▼</span>
+          </div>
+          <div class="tutor-card-expand">
+            <ul class="star-list">
+              <li>SBA 98 分，作品集滿分</li>
+              <li>第八屆葛量洪視覺藝術獎 2024/25 得主</li>
+              <li>學生視覺藝術作品展入圍及金獎</li>
+              <li>熟悉各種繪畫媒介技巧，豐富藝術比賽獲獎經驗</li>
+            </ul>
+            <a class="showcase-btn" href="showcase-helen.html" target="_blank" rel="noopener">老師作品集</a>
+          </div> 
+        </div> 
+        
+  <div class="tutor-card-collapsed" tabindex="0">
+  <div class="tutor-card-header">
+    <img src="rex-design-art1.jpeg" alt="Rex 導師">
+    <div>
+      <div class="tutor-badge">Rex</div>
+      <div class="tutor-title">視覺藝術導師</div>
+    </div>
+    <span class="expand-arrow">▼</span>
+  </div>
+  <div class="tutor-card-expand">
+    <div class="tutor-note">
+      目前就讀 PolyU 室內及環境設計，熱愛設計、攝影和藝術，擅長繪畫、雕塑、立體作品、海報及室內設計。
+    </div>
+    <ul class="star-list">
+      <li>
+        <strong>作品經歷：</strong>
+        <ul>
+          <li>中學 SBA 作品系列《夢》於 2023/24 年度入選葛量洪視覺藝術獎，並先後於香港視覺藝術中心及 2024 香港藝術教育節（大會堂）展出</li>
+          <li>同系列作品入選 2024/25 年 Sovereign 藝術基金會香港學生獎，於 2025 年 Art Central 展覽</li>
+          <li>2024 年 DSE 繪畫卷獲 5*，SBA 分數 96/100</li>
+        </ul>
+      </li>
+      <li>
+        <strong>教學及工作經驗：</strong>
+        <ul>
+          <li>兩年 DSE 視覺藝術教學經驗，擅長繪畫卷教學及 SBA 作品構想與製作</li>
+          <li>曾參與香港歌手專輯設計，包括明信片及字體設計</li>
+        </ul>
+      </li>
+    </ul>
+    <a class="showcase-btn" href="showcase-rex.html" target="_blank" rel="noopener">老師作品集</a> 
+  </div>
+</div>
+         <div class="tutor-card-collapsed" tabindex="0">
+  <div class="tutor-card-header">
+    <img src="Issac-vadse-design-art1.jpeg.jpeg" alt="Issac 導師">
+    <div>
+      <div class="tutor-badge">Issac</div>
+      <div class="tutor-title">視覺藝術導師</div>
+    </div>
+    <span class="expand-arrow">▼</span>
+  </div>
+  <div class="tutor-card-expand">
+    <div class="tutor-note">
+      香港理工大學設計系 一級榮譽畢業。逾十年藝術教學經驗，經常到訪不同學校、畫室、社區中心、庇護工場教授不同能力及年齡的學生。
+    </div>
+    <ul class="star-list">
+      <li>
+        <strong>作品經歷：</strong>
+        <ul>
+          <li>作品獲得多項設計獎，包括香港智營設計大賞及信和循環設計獎</li>
+          <li>作品更獲中環街市及理工大學設計年展展出。</li>
+        </ul>
+      </li>
+    </ul>
+    <a class="showcase-btn" href="showcase-Issac.html" target="_blank" rel="noopener">老師作品集</a> 
+  </div>
+</div>
+<div class="tutor-card-collapsed" tabindex="0">
+  <div class="tutor-card-header">
+    <img src="rex-design-art1.jpeg" alt="Rex 導師">
+    <div>
+      <div class="tutor-badge">Rex</div>
+      <div class="tutor-title">視覺藝術導師</div>
+    </div>
+    <span class="expand-arrow">▼</span>
+  </div>
+  <div class="tutor-card-expand">
+    <div class="tutor-note">
+      目前就讀 PolyU 室內及環境設計，熱愛設計、攝影和藝術，擅長繪畫、雕塑、立體作品、海報及室內設計。
+    </div>
+    <ul class="star-list">
+      <li>
+        <strong>作品經歷：</strong>
+        <ul>
+          <li>中學 SBA 作品系列《夢》於 2023/24 年度入選葛量洪視覺藝術獎，並先後於香港視覺藝術中心及 2024 香港藝術教育節（大會堂）展出</li>
+          <li>同系列作品入選 2024/25 年 Sovereign 藝術基金會香港學生獎，於 2025 年 Art Central 展覽</li>
+          <li>2024 年 DSE 繪畫卷獲 5*，SBA 分數 96/100</li>
+        </ul>
+      </li>
+      <li>
+        <strong>教學及工作經驗：</strong>
+        <ul>
+          <li>兩年 DSE 視覺藝術教學經驗，擅長繪畫卷教學及 SBA 作品構想與製作</li>
+          <li>曾參與香港歌手專輯設計，包括明信片及字體設計</li>
+        </ul>
+      </li>
+    </ul>
+    <a class="showcase-btn" href="showcase-rex.html" target="_blank" rel="noopener">老師作品集</a> 
+  </div>
+</div>
+  <div class="tutor-card-collapsed" tabindex="0">
+  <div class="tutor-card-header">
+    <img src="ShukYan-va-teacher-art1.jpeg" alt="Shukyan 導師">
+    <div>
+      <div class="tutor-badge">淑欣</div>
+      <div class="tutor-title">媒體藝術導師</div>
+    </div>
+    <span class="expand-arrow">▼</span>
+  </div>
+  <div class="tutor-card-expand">
+    <div class="tutor-note">
+      香港城市大學創意媒體系 藝術碩士及創意媒體榮耀文學士畢業。逾10年藝術創作經驗，包括設計、動畫、電影、遊戲、人機交互、裝置藝術及音效創作。擔任大學教授助理及到各中小學擔任導師。
+    </div>
+    <ul class="star-list">
+      <li>
+        <strong>作品經歷：</strong>
+        <ul>
+          <li>動畫作品獲多個海外及本地藝術節播映，包括 LIAF、DigCon6 ASIA、ClokenClap、 JCCAC、藝穗會等等， 獲日本ISCA國籍學生創意獎，及俄羅斯Insomnia藝術節評審團獎</li>
+          <li>人機交互裝置藝術作品及論文亦到多個海外及本地展出和會議發表，包括韓國ACC、澳大利亞ISEA、香港Siggarpah Asia、新加坡ICHEC等</li>
+        </ul>
+      </li>
+    </ul>
+    <a class="showcase-btn" href="showcase-shukyan.html" target="_blank" rel="noopener">老師作品集</a> 
+  </div>
+</div>
+        
+</div>
+    </section>
+    <section id="course-detail">
+      <h2>課程內容・重點</h2>
+      <ul class="star-list">
+        <li><b>DSE & IBVA 課程</b>
+          <ul class="dot-list">
+            <li>針對畫速、構圖、技巧、拆解題目、評賞、混合媒介、上色及構圖思考</li>
+            <li>根據目標分數及學生弱項量身設定教學內容</li>
+          </ul>
+        </li>
+        <li><b>香港及外國升學 Portfolio 作品集課程 (如 UAL, PolyU)</b>
+          <ul class="dot-list">
+            <li>改善作品質素、提供專業意見、內容排版、道具協助、Deadline 管理</li>
+            <li>全指定導師均就讀或畢業於該大學，且 DSE VA 取得 5** 或作品集 90 分以上</li>
+            <li>全程可錄影線上進行，方便跟進</li>
+          </ul>
+        </li>
+        <li><b>常規課程 (12 歲以上、初中及零基礎)</b> 
+          <ul class="dot-list">
+            <li>與 30 多間中學及私人機構合作，包含繪畫訓練班及比賽指導</li>
+            <li>課程已開辦七年，致力幫助學生克服時間管理、創意困境及技能提升問題</li>
+          </ul>
+        </li>
+        <li><b>視藝呈分試課程</b>
+          <ul class="dot-list">
+            <li>涵蓋傳統媒介、時裝設計、室內設計、平面設計、電繪、地景模型、雕塑及 3D 打印</li>
+          </ul>
+        </li>
+        <li><b>每班 1-4 人小班教學，個別跟進進度，助你突破創意困難</b></li>
+        <li><b>二人同行 95 折，四人同行 9 折，六人同行 85 折！</b> </li>
+      </ul>
+      <div style="margin:1.1em 0 0.8em 0;color:var(--darkgreen);font-weight:bold;">
+        所有班型可因應需要個別調整內容及堂數。
+      </div>
+
+      <h2 style="margin-top:2em;">常見問題・上堂須知</h2>
+      <ul class="star-list">
+        <li>考試 VA 班第一堂：請帶考試圖片或作品照片，普通文具即可</li>
+        <li>SBA 作品集班第一堂：帶齊 SBA 所有東西（或相片），文具、功課亦可</li>
+        <li>每個學生會獲專屬進度追蹤，考試技巧人手調整</li>
+        <li>如有比賽、操卷、立體作品需求，歡迎查詢</li>
+      </ul>
+    </section>
+
+    <section id="locations">
+      <h2>上課地點</h2>
+      <div class="locations-flex">
+        <div class="loc-card">
+          <div class="loc-title" style="font-weight:bold; font-size:1.1em; margin-bottom:0.5em;">📍 旺角分校</div>
+          九龍旺角缽蘭街 280 商業大廈 14 樓 01 室<br>
+          <strong>旺角站 C 出口</strong><br>
+        </div>
+      </div>
+    </section>
+
+    <section id="articles">
+      <h2>🎓 藝術考試專欄</h2>
+      <div class="article-list">
+        <article>
+          <h3>如何準備 DSE 視藝考試作品集？</h3>
+          <p>掌握評卷重點，精選個人最佳作品，並展示創作理念。本文教你如何從零開始有系統地準備屬於自己的完美作品集！</p>
+          <a class="read-more-link" href="article1.html" target="_blank" rel="noopener">閱讀全文</a>
+        </article>
+        <article>
+          <h3>常見失分位與考場應對方法</h3>
+          <p>分析 DSE 視藝歷屆考生最易忽略的細節，教你如何在考場上避免失分，穩奪高分！</p>
+          <a class="read-more-link" href="article2.html" target="_blank" rel="noopener">閱讀全文</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>聯絡我們</h2>
+      <p>查詢或報名請 WhatsApp / 電話聯絡我們：</p>
+      <a href="tel:+85292632618" class="contact-cta">📞 +852 9263 2618</a>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="footer-social">
+      <a href="https://www.instagram.com/va_dse_victor/" title="Instagram" target="_blank" aria-label="Instagram">
+        <svg width="22" height="22" viewBox="0 0 32 32" fill="currentColor"><path d="M16 7c2.757 0 3.091 0.01 4.175 0.06 1.07 0.049 1.65 0.224 2.034 0.372 0.516 0.2 0.885 0.441 1.271 0.828 0.387 0.386 0.628 0.755 0.828 1.271 0.148 0.384 0.323 0.964 0.372 2.034 0.05 1.084 0.06 1.418 0.06 4.175s-0.01 3.091-0.06 4.175c-0.049 1.07-0.224 1.65-0.372 2.034-0.2 0.516-0.441 0.885-0.828 1.271-0.386 0.387-0.755 0.628-1.271 0.828-0.384 0.148-0.964 0.323-2.034 0.372-1.084 0.05-1.418 0.06-4.175 0.06s-3.091-0.01-4.175-0.06c-1.07-0.049-1.65-0.224-2.034-0.372-0.516-0.2-0.885-0.441-1.271-0.828-0.387-0.386-0.628-0.755-0.828-1.271-0.148-0.384-0.323-0.964-0.372-2.034-0.05-1.084-0.06-1.418-0.06-4.175s0.01-3.091 0.06-4.175c0.049-1.07 0.224-1.65 0.372-2.034 0.2-0.516 0.441-0.885 0.828-1.271 0.386-0.387 0.755-0.628 1.271-0.828 0.384-0.148 0.964-0.323 2.034-0.372 1.084-0.05 1.418-0.06 4.175-0.06m0-2c-2.807 0-3.153 0.011-4.253 0.062-1.099 0.052-1.85 0.229-2.497 0.488-0.677 0.268-1.249 0.626-1.818 1.194-0.568 0.569-0.926 1.141-1.194 1.818-0.259 0.647-0.436 1.398-0.488 2.497-0.051 1.1-0.062 1.446-0.062 4.253s0.011 3.153 0.062 4.253c0.052 1.099 0.229 1.85 0.488 2.497 0.268 0.677 0.626 1.249 1.194 1.818 0.569 0.568 1.141 0.926 1.818 1.194 0.647 0.259 1.398 0.436 2.497 0.488 1.1 0.051 1.446 0.062 4.253 0.062s3.153-0.011 4.253-0.062c1.099-0.052 1.85-0.229 2.497-0.488 0.677-0.268 1.249-0.626 1.818-1.194 0.568-0.569 0.926-1.141 1.194-1.818 0.259-0.647 0.436-1.398 0.488-2.497 0.051-1.1 0.062-1.446 0.062-4.253s-0.011-3.153-0.062-4.253c-0.052-1.099-0.229-1.85-0.488-2.497-0.268-0.677-0.626-1.249-1.194-1.818-0.569-0.568-1.141-0.926-1.818-1.194-0.647-0.259-1.398-0.436-2.497-0.488-1.1-0.051-1.446-0.062-4.253-0.062z"></path><circle cx="16" cy="16" r="5.5"></circle></svg>
+      </a>
+      <a href="mailto:vadsevictor@gmail.com" title="Email" aria-label="Email">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 13.5l-11-8.5v17h22v-17l-11 8.5zm11-10.5h-22l11 8.5 11-8.5z"></path></svg>
+      </a>
+    </div>
+    © 2025 Victor Studio 視藝救星
+  </footer>
+
+  <script>
+    // Navbar active state on scroll
+    const navLinks = document.querySelectorAll('nav a[href^="#"]');
+    window.addEventListener('scroll', () => {
+      let fromTop = window.scrollY + 120;
+      navLinks.forEach(link => {
+        let section = document.querySelector(link.hash);
+        if (section) {
+          if (
+            section.offsetTop <= fromTop &&
+            section.offsetTop + section.offsetHeight > fromTop
+          ) {
+            navLinks.forEach(l => l.classList.remove('active'));
+            link.classList.add('active');
+          }
+        }
+      });
+    });
+
+    // Fade in sections on scroll (for Safari fallback)
+    document.addEventListener("DOMContentLoaded", function(){
+      var sections = document.querySelectorAll("main section, .tutor-panel, .loc-card, footer");
+      function showOnScroll(){
+        var winBottom = window.scrollY + window.innerHeight;
+        sections.forEach(function(sec){
+          var rect = sec.getBoundingClientRect();
+          var top = rect.top + window.scrollY;
+          if(winBottom > top+40) sec.style.opacity = 1;
+        });
+      }
+      showOnScroll();
+      window.addEventListener("scroll", showOnScroll);
+    });
+
+    // Expandable Cards Logic
+    document.addEventListener("DOMContentLoaded", function() {
+      var cards = document.querySelectorAll('.tutor-card-collapsed');
+      cards.forEach(function(card) {
+        card.addEventListener('click', function(e) {
+          // Check if clicking a link button inside the card, if so do not toggle
+          if (e.target.closest('a')) return;
+
+          // 避免同時展開多個 (Optional: remove this if you want multiple open)
+          if (!card.classList.contains('active')) {
+            cards.forEach(function(c) { c.classList.remove('active'); });
+          }
+          card.classList.toggle('active');
+        });
+        // Support Keyboard Accessibility
+        card.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter' || e.key === " ") {
+            e.preventDefault();
+            card.click();
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
